@@ -1,0 +1,21 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>فحص التشغيل — الراعي</title><style>body{background:#f4f7f5;color:#123e39;font:16px system-ui,Tahoma,sans-serif;max-width:520px;margin:auto;padding:24px}main{background:white;padding:24px;border-radius:20px;box-shadow:0 5px 30px #123e3910}h1{font-size:26px;margin:0 0 12px}.status{background:#edf4f0;padding:16px;border-radius:13px;font-weight:700;line-height:1.8}button,a.btn{border:0;border-radius:12px;background:#123e39;color:white;padding:13px 20px;font:inherit;display:inline-block;text-decoration:none;cursor:pointer;margin-top:10px}.muted{font-size:13px;color:#677a73;line-height:1.9}#more{white-space:pre-wrap;font-size:12px;direction:ltr;text-align:left;color:#536760}</style></head><body><main><h1>✝ فحص تطبيق الراعي</h1><p>تقدر تتأكد من تجهيز التطبيق للعمل دون إنترنت، قبل اعتماده.</p><div class="status" id="state">جاري الفحص...</div><button id="check">تجهيز / إعادة الفحص</button> <a class="btn" href="./">فتح الراعي</a><p class="muted">لو ظهر «جاهز للأوفلاين»، اقفل الإنترنت وافتح التطبيق مرة أخرى للتأكد. البيانات الشخصية لا تدخل في الاختبار.</p><div id="more"></div></main><script>
+const state=document.getElementById('state'), detail=document.getElementById('more');
+async function run(){
+ state.textContent='جاري فحص التخزين...';
+ try {
+  if (!('serviceWorker' in navigator) || !('caches' in window)) throw Error('المتصفح لا يدعم تخزين التطبيق');
+  const reg = await navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'});
+  await reg.update().catch(()=>{});
+  await navigator.serviceWorker.ready;
+  const core = new URL('./index.html',location.href).href;
+  let match = await caches.match(core);
+  if (!match && navigator.onLine) {
+    const fetched=await fetch(core,{cache:'reload'});
+    if (fetched.ok) { await (await caches.open('alraei-pwa-shell-2.1')).put(core,fetched.clone()); match=await caches.match(core); }
+  }
+  state.textContent=match?'✅ جاهز للتشغيل دون إنترنت':'⚠️ التطبيق غير جاهز للأوفلاين. افتحه مرة أثناء وجود الإنترنت ثم أعد الفحص.';
+  detail.textContent='Source: '+location.origin+'\nCache: '+(match?'READY':'NOT READY')+'\nService worker: '+(reg.active?'active':'pending');
+ } catch(err) {state.textContent='❌ لم يكتمل تجهيز التطبيق: '+err.message;detail.textContent='تأكد من أن الموقع يفتح بدون رسالة ERR_FAILED قبل إعادة المحاولة.';}
+}
+document.getElementById('check').onclick=run;run();
+</script></body></html>

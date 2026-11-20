@@ -1,0 +1,925 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="theme-color" content="#123e39"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="description" content="الراعي — متابعة الافتقاد ومواعيد الاعتراف على جهاز واحد دون إنترنت">
+<meta name="app-version" content="2.1-offline-stable">
+
+<style>:root{font-family:system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif;color:#15342f;background:#f4f7f5;font-synthesis:none;--forest:#123e39;--forest2:#206358;--cream:#e7ce9e;--paper:#fff;--muted:#73827f;--line:#e2eae6;--danger:#a33e39;--dangerbg:#fcf0ec;--warn:#945d1d;--warnbg:#fbf3e5;--ok:#1c7554;--okbg:#e8f5ed;--shadow:0 10px 40px rgba(12,45,37,.075)}*{box-sizing:border-box}html,body{min-height:100%;margin:0}body{overflow-x:hidden}button,input,textarea,select{font:inherit}button{cursor:pointer}button:disabled{opacity:.4;cursor:not-allowed}input,textarea,select{color:#173b35;outline:none}input:focus,textarea:focus,select:focus{border-color:#32806e!important;box-shadow:0 0 0 3px #32806e1b}a{color:var(--forest2);text-decoration:none}svg{display:block}#app{min-height:100vh}.splash{height:95vh;display:flex;flex-direction:column;justify-content:center;align-items:center}.splash-emblem{background:var(--forest);color:var(--cream);height:90px;width:90px;display:grid;place-items:center;border-radius:26px;font-size:56px}.splash h1{margin:16px 0 0}.splash p{color:var(--muted)}.app-layout{min-height:100vh;padding-bottom:calc(90px + env(safe-area-inset-bottom));}.topbar{background:var(--forest);color:white;padding:calc(16px + env(safe-area-inset-top)) max(22px,calc((100vw - 900px)/2)) 76px;}.topbar-main{max-width:860px;margin:auto;display:flex;justify-content:space-between;align-items:center}.logo-group{display:flex;align-items:center;gap:12px}.logo-mark{width:47px;height:47px;border-radius:15px;background:rgba(255,255,255,.12);display:grid;place-items:center;font-size:30px;color:var(--cream)}.brand{font-size:24px;font-weight:800;letter-spacing:-.6px}.brand-sub{color:#bad4ca;font-size:12px;margin-top:0}.top-tools{display:flex;gap:8px}.top-tool{color:white;background:rgba(255,255,255,.12);border:0;border-radius:12px;width:40px;height:40px;display:grid;place-items:center;font-size:21px}.page{max-width:860px;margin:-53px auto 0;position:relative;padding:0 16px 24px}.main-card,.card{background:var(--paper);border:1px solid #e9efeb;border-radius:20px;box-shadow:var(--shadow)}.main-card{padding:22px}.card{padding:17px;margin-top:13px}.page-title{font-size:21px;font-weight:800;line-height:1.5;margin:0 0 4px}.subtitle{color:var(--muted);font-size:13px;line-height:1.6}.section-title{font-size:16px;font-weight:800;margin:19px 2px 10px}.section-header{display:flex;align-items:center;justify-content:space-between;gap:10px}.tag{border-radius:99px;padding:5px 10px;font-size:11px;font-weight:750;display:inline-block;background:#eef5f2;color:var(--forest2);white-space:nowrap}.tag.overdue{background:var(--dangerbg);color:var(--danger)}.tag.due{background:var(--warnbg);color:var(--warn)}.tag.ok{background:var(--okbg);color:var(--ok)}.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin-top:18px}.stat{padding:17px;border-radius:15px;background:#f6f9f7;min-width:0}.stat .num{font-size:30px;font-weight:850;line-height:1.25;letter-spacing:-1px}.stat .st-label{color:#657a73;font-size:12px;margin-top:4px}.stat .st-top{font-size:20px;margin-bottom:6px}.list{display:grid;gap:9px}.person-row{display:flex;align-items:center;gap:10px;padding:12px;border:1px solid var(--line);background:white;border-radius:14px;min-width:0}.person-avatar{flex:none;display:grid;place-items:center;width:42px;height:42px;border-radius:13px;background:#eff5f1;color:var(--forest2);font-weight:800;font-size:17px}.person-main{flex:1;min-width:0;cursor:pointer}.person-main strong{display:block;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.person-main small{display:block;margin-top:3px;font-size:11.5px;color:var(--muted);line-height:1.5}.row-actions{display:flex;gap:6px;align-items:center;flex-wrap:wrap}.icon-btn{border:1px solid var(--line);background:white;border-radius:11px;width:36px;height:36px;display:grid;place-items:center;font-size:18px}.icon-btn:hover{background:#f6faf8}.btn{border:0;background:var(--forest);color:white;border-radius:12px;min-height:42px;padding:10px 16px;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-size:13px;font-weight:800;white-space:nowrap}.btn.secondary{background:#eef5f1;color:var(--forest2)}.btn.outline{background:#fff;border:1px solid var(--line);color:var(--forest)}.btn.danger{background:#b54742;color:white}.btn.small{min-height:34px;padding:7px 11px;font-size:12px}.btn.block{width:100%}.btn[disabled]{opacity:.5}.actions-inline{display:flex;gap:9px;flex-wrap:wrap}.actions-inline>*{flex:1}.searchbar{border:1px solid var(--line);background:white;border-radius:13px;display:flex;gap:9px;padding:0 12px;align-items:center;margin:15px 0 10px}.searchbar span{color:#83958e}.searchbar input{padding:14px 0;border:0;width:100%;background:none;outline:none;box-shadow:none!important}.segmented{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0}.pill{padding:9px 13px;border:1px solid var(--line);background:white;border-radius:99px;color:#4d6b61;font-size:12px;font-weight:750}.pill.active{background:var(--forest);border-color:var(--forest);color:white}.empty{text-align:center;padding:35px 17px;color:var(--muted);background:white;border-radius:16px;border:1px dashed #d4dfda}.empty .big{font-size:31px;margin-bottom:6px}.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.97);border-top:1px solid var(--line);padding:10px max(12px,calc((100vw - 880px)/2)) calc(8px + env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(5,1fr);gap:4px;z-index:20;backdrop-filter:blur(12px)}.nav-item{display:flex;flex-direction:column;align-items:center;gap:2px;border:0;background:transparent;color:#85948f;padding:5px 0;font-size:10px;min-width:0}.nav-item .nicon{font-size:24px;line-height:1.3}.nav-item.active{color:var(--forest);font-weight:850}.nav-item.active .nicon{transform:translateY(-2px)}.field{display:grid;gap:7px;margin:0 0 15px}.field>label{color:#33564c;font-size:12.5px;font-weight:800}.input,select,textarea{width:100%;border:1px solid #d9e5df;background:#fff;border-radius:12px;padding:12px 13px;font-size:14px;min-height:45px}.help{font-size:11.5px;line-height:1.7;color:var(--muted)}.fieldgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.switch-line{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}.switch-line:last-child{border-bottom:0}.switch-line .txt{flex:1}.switch-line .txt b{font-size:13px}.switch-line .txt small{display:block;color:var(--muted);font-size:11px;margin-top:3px}.switch{appearance:none;position:relative;background:#cad6d0;border-radius:99px;width:43px;height:25px;flex:none;transition:.18s;cursor:pointer}.switch:checked{background:#1c7863}.switch:before{content:"";position:absolute;width:19px;height:19px;left:3px;top:3px;background:white;border-radius:50%;transition:.18s}.switch:checked:before{transform:translateX(18px)}.modal-layer{position:fixed;inset:0;background:rgba(6,32,28,.62);z-index:60;display:flex;align-items:flex-end;justify-content:center;overflow-y:auto;padding-top:36px}.modal{background:#fff;width:min(640px,100%);border-radius:24px 24px 0 0;max-height:calc(100dvh - 24px);display:flex;flex-direction:column;box-shadow:0 -10px 45px #0002}.modal-top{padding:19px 20px 13px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.modal-top h2{margin:0;font-size:18px}.modal-body{padding:19px 20px;overflow:auto;overscroll-behavior:contain}.modal-actions{padding:12px 20px calc(14px + env(safe-area-inset-bottom));border-top:1px solid var(--line);display:flex;gap:9px}.modal-actions .btn{flex:1}.toast{position:fixed;bottom:calc(93px + env(safe-area-inset-bottom));right:50%;transform:translateX(50%) translateY(18px);z-index:100;background:#1a433b;color:#fff;min-width:210px;max-width:90%;border-radius:13px;padding:13px 18px;text-align:center;box-shadow:0 12px 30px #122b2560;opacity:0;pointer-events:none;transition:.25s;font-size:13px;line-height:1.5}.toast.show{opacity:1;transform:translateX(50%) translateY(0)}.screen-login{min-height:100dvh;display:grid;place-items:center;background:linear-gradient(145deg,#123e39 0%,#286659 52%,#e5eeea 52%,#f5f7f5 100%);padding:18px}.login-box{width:min(410px,100%);background:white;border-radius:25px;box-shadow:0 20px 80px #072a2460;padding:29px}.login-head{text-align:center;margin:2px 0 25px}.login-emblem{display:grid;place-items:center;background:var(--forest);color:var(--cream);border-radius:23px;width:74px;height:74px;font-size:46px;margin:auto}.login-head h1{font-size:29px;margin:13px 0 2px}.login-head p{font-size:13px;color:var(--muted);margin:0}.warning{padding:13px;background:var(--warnbg);border-radius:12px;font-size:12px;color:#765019;line-height:1.8;margin:12px 0}.danger-note{color:var(--danger);font-size:12px;line-height:1.7}.info-note{color:#52746b;font-size:12px;line-height:1.8}.detail-meta{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}.meta{background:#f6f9f7;padding:13px;border-radius:13px;min-width:0}.meta small{display:block;color:var(--muted);font-size:11px;margin-bottom:5px}.meta b{font-size:13px;overflow-wrap:anywhere}.timeline{border-right:2px solid #e1eae6;margin-right:10px;padding-right:18px}.timeline-item{position:relative;margin:14px 0}.timeline-item:before{content:"";position:absolute;width:11px;height:11px;border:3px solid white;background:#6ba38c;border-radius:50%;right:-25px;top:5px;box-shadow:0 0 0 1px #d3e4d9}.timeline-item b{font-size:13px}.timeline-item p{font-size:11.5px;color:var(--muted);line-height:1.6;margin:5px 0}.report-row{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding:13px 2px;font-size:13px}.report-row:last-child{border:0}.report-row b{font-size:17px}.csv-preview{max-height:245px;overflow:auto;border:1px solid var(--line);border-radius:13px;margin:12px 0}.csv-preview table{width:100%;border-collapse:collapse;font-size:11.5px;white-space:nowrap}.csv-preview td,.csv-preview th{padding:8px;border-bottom:1px solid var(--line);text-align:right}.csv-preview th{background:#f0f6f3}.small-muted{font-size:11px;color:var(--muted)}.divider{height:1px;background:var(--line);margin:17px 0}.banner{border-radius:15px;padding:15px;background:linear-gradient(110deg,#1d6457,#123e39);color:white}.banner p{font-size:12px;color:#d1e5dc;line-height:1.8}.banner .btn{background:#fff;color:var(--forest)}.date-inline{color:var(--muted);font-size:11px}.count-bubble{font-size:11px;background:var(--dangerbg);color:var(--danger);padding:4px 8px;border-radius:99px;margin-right:5px}.link-like{background:none;border:0;padding:4px;color:var(--forest2);font-size:12px;font-weight:800}.kpi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.disabled-text{color:#96a39f}.align-center{text-align:center}.danger-color{color:var(--danger)}.warn-color{color:var(--warn)}.ok-color{color:var(--ok)}.muted{color:var(--muted)}@media(min-width:650px){.stats{grid-template-columns:repeat(4,1fr)}.modal-layer{align-items:center;padding:20px}.modal{border-radius:23px;max-height:90vh}.page{padding-inline:22px}.stat .num{font-size:34px}}@media(max-width:350px){.fieldgrid{grid-template-columns:1fr}.row-actions .btn.small{font-size:10px;padding:7px}.main-card{padding:16px}.person-row{padding:9px;gap:6px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+/* Version 1.6 - only mount a small portion of long lists. */
+.list-more{text-align:center;margin:14px auto 6px}
+.list-more .btn{min-width:160px}
+.list-summary{font-size:12px;color:var(--muted);margin:9px 0}
+.person-row{content-visibility:auto;contain-intrinsic-size:auto 165px}
+
+/* v1.8 agenda, recurrence, Coptic calendar */
+.agenda-toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.agenda-toolbar .btn{flex:1;white-space:normal}
+.schedule-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:12px 0}
+.schedule-grid .btn{white-space:normal;min-height:55px;font-size:11.5px;padding:9px 5px;line-height:1.5}
+.event-item{border:1px solid var(--line);background:#fff;border-radius:14px;padding:12px 13px;margin:9px 0}
+.event-item.conflict{border-color:#e0a5a0;background:#fff9f8}
+.event-top{display:flex;gap:11px;align-items:flex-start;justify-content:space-between}
+.event-time{background:#edf5f0;border-radius:11px;min-width:102px;text-align:center;font-size:12px;font-weight:800;padding:9px 6px;color:#245747;flex:none}
+.event-desc{flex:1;min-width:0}.event-desc b{font-size:13.5px;display:block;line-height:1.5}
+.event-desc small{display:block;color:var(--muted);line-height:1.6;margin-top:4px}
+.event-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:11px}.event-actions .btn{font-size:11px;min-height:32px;padding:7px 10px}
+.conflict-warning{padding:11px 12px;background:#fff0ee;color:#993c36;border-radius:12px;line-height:1.7;font-size:12px;margin:11px 0;border:1px solid #efc7c3}
+.occasion-line{display:flex;justify-content:space-between;gap:10px;align-items:center;border-bottom:1px solid #e7eee9;padding:11px 2px}
+.occasion-line:last-child{border-bottom:0}.occasion-line b{font-size:13px}.occasion-line small{display:block;color:var(--muted);font-size:11px;margin-top:4px}
+.plan-meta{border:1px solid #dce8e1;background:#f8fbf9;padding:12px;border-radius:14px;margin:12px 0;font-size:12px;line-height:1.8}
+.target-search-results{max-height:230px;overflow:auto;border:1px solid var(--line);border-radius:12px;margin:7px 0 14px}
+.target-option{display:block;width:100%;text-align:right;border:0;border-bottom:1px solid var(--line);background:white;padding:11px 12px;font-size:12px;color:#24463b}
+.target-option:last-child{border-bottom:0}.target-option:hover{background:#f2f7f4}
+.target-selected{border:1px solid #b4d4c1;background:#e8f4ed;color:#1a6546;border-radius:11px;padding:10px;margin:10px 0;font-size:12px;font-weight:800}
+.weekday-pick{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin:8px 0 15px}
+.weekday-pick label{border:1px solid var(--line);border-radius:10px;padding:10px 4px;text-align:center;font-size:12px;display:flex;gap:4px;justify-content:center;align-items:center}
+.weekday-pick input{accent-color:#206358}
+.coptic-summary{padding:14px;background:linear-gradient(115deg,#e4f1e8,#f8f7e9);border:1px solid #d5e5d9;border-radius:15px;margin:12px 0;line-height:1.8}
+.coptic-summary strong{display:block;font-size:17px}.coptic-summary small{color:#537265;font-size:11px}
+.day-strip{display:flex;gap:5px;overflow-x:auto;padding:4px 0 11px}
+.day-strip button{flex:1;min-width:49px;border:1px solid var(--line);padding:10px 4px;border-radius:12px;background:white;font-size:11px;line-height:1.7;color:#526d61}
+.day-strip button.selected{background:var(--forest);color:white;border-color:var(--forest);font-weight:800}
+.dashboard-schedule-card{margin-top:14px}.dashboard-schedule-card .section-title{margin-top:0}
+.bottom-nav{grid-template-columns:repeat(5,minmax(0,1fr))!important}.nav-item{font-size:9px;line-height:1.3}.nav-item .nicon{font-size:21px}
+@media(max-width:440px){.schedule-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.event-time{min-width:86px;font-size:11px}.weekday-pick{grid-template-columns:repeat(4,minmax(0,1fr))}}
+
+</style>
+<title>الراعي | الاعتراف وافتقاد الأفراد والأسر</title>
+
+<style>
+/* Unified people and confession screen — stable alphabetical position */
+.bottom-nav{grid-template-columns:repeat(4,minmax(0,1fr))}
+.nav-item{font-size:11px}
+.stat-click{border:0;text-align:right;color:inherit;font:inherit;cursor:pointer;transition:transform .15s,background .15s}
+.stat-click:active{transform:scale(.98)}.stat-click:focus-visible{outline:3px solid #32806e;outline-offset:3px}
+.person-card{align-items:flex-start;gap:11px;padding:13px}
+.person-content{flex:1;min-width:0}.person-top{display:flex;align-items:start;justify-content:space-between;gap:6px}
+.person-top .person-main{min-width:0}.person-date{margin-top:9px;color:#234b41;font-size:12px;font-weight:750;line-height:1.75}
+.person-next{color:#72867d;font-size:11px;line-height:1.5;margin-top:3px}
+.person-controls{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.person-controls .btn{flex:0 0 auto;font-size:11px;min-height:35px;padding:7px 10px}
+.person-row .tag{font-size:10px}
+@media(max-width:440px){.person-avatar{height:36px;width:36px;border-radius:11px;font-size:15px}.person-card{gap:8px;padding:11px}.person-controls .btn{font-size:10.5px;padding:7px 9px}.person-top{flex-wrap:wrap}.person-top .tag{order:2}.brand{font-size:22px}}
+
+/* v1.3 - direct backdated recording, import diagnostics, safe reset controls. */
+.person-controls .btn{min-width:0}
+.import-preview-warning{background:#fff2e8;border:1px solid #eec8a7;padding:12px;border-radius:12px;font-size:12px;line-height:1.8;margin:10px 0}
+.import-preview-warning b{color:#875021}
+.reset-section{border:1px solid #f1d5d0;background:#fffafa;border-radius:16px;padding:17px;margin-top:14px}
+.reset-section h2{margin:0 0 5px;color:#923b35}
+.reset-section .danger-explain{font-size:12px;line-height:1.8;color:#7c544d;margin:0 0 12px}
+.reset-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.reset-choices .btn{white-space:normal;line-height:1.4}
+.date-presets{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:12px 0 14px}
+.date-presets button{white-space:normal;font-size:12px}
+@media(max-width:400px){.reset-choices{grid-template-columns:1fr}.person-controls .btn{font-size:10px;padding:7px 8px}}
+/* v1.4: family grouping + single-tap visitation in the unified list */
+.family-actions{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.family-actions .btn{white-space:normal}
+.family-card{background:#fff;border:1px solid #dbe8e1;border-radius:16px;padding:14px;margin-bottom:10px}
+.family-card h3{font-size:15px;margin:0 0 5px}
+.family-card p{font-size:12px;line-height:1.75;color:var(--muted);margin:4px 0 9px}
+.family-member-list{display:flex;flex-wrap:wrap;gap:5px;margin:8px 0 12px}
+.family-member-chip{background:#f0f5f2;color:#275a49;border-radius:9px;padding:5px 8px;font-size:11px}
+.family-member-chip.head{background:#dceee2;font-weight:800}
+.family-picker{display:flex;align-items:center;gap:13px;cursor:pointer;border:1px solid #e0ebe5;border-radius:13px;background:#fff;padding:13px;margin:8px 0}
+.family-picker.selected{background:#eff7f2;border-color:#8eb9a0}
+.family-picker input{width:22px;height:22px;flex:none;accent-color:#206358}
+.family-picker b{font-size:14px}
+.family-picker small{display:block;color:var(--muted);font-size:11px;margin-top:4px}
+.family-picker-bar{position:sticky;top:6px;background:#f2f8f4;border:1px solid #cfe4d7;border-radius:16px;padding:12px;margin:12px 0;z-index:3}
+.family-picker-bar .count{font-size:13px;font-weight:800;margin-bottom:8px}
+.family-head-option{display:flex;align-items:center;gap:9px;padding:10px;border:1px solid var(--line);border-radius:12px;margin:7px 0}
+.family-head-option input{width:19px;height:19px;accent-color:#206358}
+.person-family{font-size:11px;color:#2c795e;margin-top:4px;font-weight:700}
+.person-visit-date{font-size:11px;color:#6d8279;margin-top:2px}
+@media(max-width:460px){.family-card .person-controls .btn,.person-controls .btn{font-size:10px;padding:7px 8px}.family-actions .btn{font-size:11px}}
+/* v1.5: family member search and dedicated household visitation screen */
+.family-filter-note{color:var(--muted);font-size:12px;margin:5px 0 12px}
+.family-picker-selected{display:flex;flex-wrap:wrap;gap:6px;padding:10px 0}
+.family-picker-selected .tag{white-space:normal;line-height:1.5}
+.family-searchbar{margin:12px 0}
+.family-visit-form-panel{border:1px solid #d2e5d8;background:#f8fbf9;border-radius:17px;padding:16px;margin-top:14px}
+.family-visit-form-panel h2{margin:0 0 5px;font-size:17px}
+.family-visit-form-panel .field{margin-top:11px}
+.family-visit-summary{background:#eaf3ed;border-radius:12px;padding:12px;font-size:12px;line-height:1.85;color:#315c4b;margin:12px 0}
+.family-visit-summary b{color:#164637}
+.family-visit-card-selected{border-color:#32806e;box-shadow:0 0 0 2px #32806e26}
+.family-visit-preset{display:flex;flex-wrap:wrap;gap:8px;margin:-3px 0 14px}
+.family-visit-preset button{flex:1;min-width:90px}
+.visit-nav-options{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0}
+.visit-nav-options .btn{white-space:normal;min-height:44px;text-align:center}
+.family-visit-list .family-card[hidden]{display:none}
+.family-visit-history{margin-top:10px;padding-top:10px;border-top:1px dashed #d6e4dc}
+.family-visit-history small{display:block;color:#627d71;font-size:11px;line-height:1.9}
+@media(max-width:380px){.family-visit-form-panel{padding:12px}.family-visit-preset button{min-width:70px;font-size:11px}.family-picker{padding:10px}}
+</style>
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png">
+<meta name="apple-mobile-web-app-title" content="الراعي">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+</head>
+<body>
+<div id="app" aria-live="polite"><div class="splash"><div class="splash-emblem">✝</div><h1>الراعي</h1><p>المتابعة الرعوية</p><p style="font-size:13px;margin:8px 20px;text-align:center">جارٍ فتح التطبيق على هذا الجهاز...</p><p style="font-size:12px"><a href="./status.html" style="text-decoration:underline">فحص تحميل التطبيق</a></p></div></div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script>
+window.addEventListener('error',function(ev){
+  var el=document.getElementById('app');
+  if(el && el.querySelector('.splash')){
+    el.innerHTML='<section style="max-width:520px;margin:12vh auto;padding:24px;text-align:center;font-family:Tahoma,Arial,sans-serif;background:white;border-radius:16px"><h2>تعذّر تشغيل التطبيق</h2><p>تم تحميل الصفحة، لكن واجه التطبيق خطأ أثناء التشغيل.</p><p><a href="./status.html">افتح صفحة فحص التحميل</a></p></section>';
+  }
+},true);
+window.addEventListener('unhandledrejection',function(ev){
+  var el=document.getElementById('app');
+  if(el && el.querySelector('.splash')){
+    el.innerHTML='<section style="max-width:520px;margin:12vh auto;padding:24px;text-align:center;font-family:Tahoma,Arial,sans-serif;background:white;border-radius:16px"><h2>تعذّر إكمال التشغيل</h2><p>لم يتم مسح أي بيانات. جرّب صفحة التشخيص.</p><p><a href="./status.html">فحص التحميل</a></p></section>';
+  }
+});
+</script>
+<script>// Pure application logic. Dates are LOCAL calendar dates (YYYY-MM-DD), not UTC timestamps.
+const uid = () => typeof crypto.randomUUID === 'function' ? crypto.randomUUID() : 'id-'+Date.now()+'-'+Math.random().toString(36).slice(2);
+function today(d=new Date()){return [d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-')}
+function parseDate(s){if(!/^\d{4}-\d{2}-\d{2}$/.test(s||''))return null;let [y,m,d]=s.split('-').map(Number);const dt=new Date(y,m-1,d,12);return dt.getFullYear()===y&&dt.getMonth()===m-1&&dt.getDate()===d?dt:null}
+function addDays(s,n){let dt=parseDate(s);if(!dt)return '';dt.setDate(dt.getDate()+n);return today(dt)}
+const ordinalCache=new Map(),addDateCache=new Map();
+function ordinal(s){if(!s)return null;if(ordinalCache.has(s))return ordinalCache.get(s);const d=parseDate(s);let n=d?Math.round(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())/86400000):null;if(ordinalCache.size>25000)ordinalCache.clear();ordinalCache.set(s,n);return n}
+function daysBetween(a,b){let x=ordinal(a),y=ordinal(b);return x!==null&&y!==null?y-x:null}
+function arabicDigits(s){return String(s??'').replace(/[٠-٩]/g,c=>String(c.charCodeAt(0)-0x660)).replace(/[۰-۹]/g,c=>String(c.charCodeAt(0)-0x6f0))}
+function normalizePhone(s){let p=arabicDigits(s).replace(/[^\d+]/g,'');if(p.startsWith('0020'))p='0'+p.slice(4);else if(p.startsWith('+20'))p='0'+p.slice(3);else if(p.startsWith('20')&&p.length>=12)p='0'+p.slice(2);if(/^1[0125]\d{8}$/.test(p))p='0'+p;return p}
+function validPeriod(n){return Number.isInteger(Number(n))&&+n>=1&&+n<=3650}
+function intervalFor(p,settings){let period=p.periodOverride&&validPeriod(p.periodOverride)?Number(p.periodOverride):p.servant?Number(settings.servantDays):Number(settings.ordinaryDays);return validPeriod(period)?period:60}
+function confessionStatus(p,settings,now=today()){if(!p.lastConfession)return {kind:'unknown',days:null,overdue:0,due:null,remaining:null};let duration=intervalFor(p,settings), days=daysBetween(p.lastConfession,now);if(days===null)return {kind:'unknown',days:null,overdue:0,due:null,remaining:null};let due=addDays(p.lastConfession,duration),remaining=daysBetween(now,due),overdue=Math.max(0,-remaining);return {kind:p.paused?'paused':remaining<0?'overdue':remaining===0?'due':'ok',days,overdue,due,remaining,duration}}
+function visitStatus(p,settings,now=today()){
+ if(p.visitPaused)return {kind:'paused',due:null,remaining:null,last:''};
+ if(p.followupDue==='none')return {kind:'unknown',due:null,remaining:null,last:''};
+ const last=(p.visits||[]).reduce((a,v)=>v.date>a?v.date:a,'');
+ const noVisit=!last, noAssignedDue=!p.followupDue;
+ const baseline=noVisit&&noAssignedDue&&settings.visitBaselineEnabled&&parseDate(settings.visitBaselineDate)?settings.visitBaselineDate:'';
+ const effectiveStart=last||baseline;
+ const due=p.followupDue||(effectiveStart?addDays(effectiveStart,Number(settings.visitDays)||90):null);
+ const remaining=due?daysBetween(now,due):null;
+ return {kind:!due?'unknown':remaining<0?'overdue':remaining===0?'due':'ok',due,remaining,last,baseline};
+}
+function starterData(){return {version:3,installedOn:today(),people:[],families:[],appointments:[],taskRules:[],taskExceptions:[],settings:{servantDays:30,ordinaryDays:60,visitDays:90,visitBaselineEnabled:false,visitBaselineDate:null,notifyHour:9,notifyMinute:0,showNamesOnLock:false,notifyEnabled:false}}}
+function newPerson(data={}){return {id:uid(),name:'',phones:[],area:'',family:'',address:'',servant:false,periodOverride:null,lastConfession:null,confessions:[],visits:[],followupDue:null,paused:false,visitPaused:false,createdAt:new Date().toISOString(),...data}}
+function addConfession(p,date=today()){if(!parseDate(date)||date>today())throw Error('تاريخ الاعتراف غير صحيح أو في المستقبل');let entry={id:uid(),date,createdAt:new Date().toISOString()};let confessions=[...(p.confessions||[]),entry].sort((a,b)=>a.date.localeCompare(b.date));return {...p,confessions,lastConfession:confessions.at(-1)?.date||null}}
+function removeConfession(p,id){let confessions=(p.confessions||[]).filter(x=>x.id!==id).sort((a,b)=>a.date.localeCompare(b.date));return {...p,confessions,lastConfession:confessions.at(-1)?.date||null}}
+function addVisit(p,data,settings){if(!parseDate(data.date)||data.date>today())throw Error('تاريخ الافتقاد غير صحيح أو في المستقبل');let visit={id:uid(),date:data.date,type:data.type||'زيارة منزلية',result:data.result||'تم التواصل',note:(data.note||'').slice(0,800),createdAt:new Date().toISOString(),groupVisitId:data.groupVisitId||null};let next=data.nextDue=== 'auto'?addDays(data.date,+settings.visitDays):data.nextDue||'none';let latest=(p.visits||[]).reduce((v,x)=>x.date>v?x.date:v,'');return {...p,visits:[...(p.visits||[]),visit].sort((a,b)=>a.date.localeCompare(b.date)),followupDue:!latest||data.date>=latest?next:p.followupDue??null}}
+function removeVisit(p,id){return {...p,visits:(p.visits||[]).filter(x=>x.id!==id)}}
+// Date calculations and sorting are independent of the current status, so sort once per list.
+const nameCollator=new Intl.Collator('ar',{sensitivity:'base'});
+function byName(a,b){return nameCollator.compare(a.name||'',b.name||'')}
+function normalizedTerm(s){return arabicDigits(s||'').trim().toLowerCase()}
+function personSearch(p,term){term=normalizedTerm(term);if(!term)return true;let f=familyForPerson(p.id);return [p.name,p.area,p.family,f?.name||'',p.address,...(p.phones||[])].some(x=>arabicDigits(x||'').toLowerCase().includes(term))}
+function sortConfessions(list,settings){const priority={overdue:0,due:1,unknown:2,ok:3,paused:4};return list.map(p=>({p,st:confessionStatus(p,settings)})).sort((a,b)=>priority[a.st.kind]-priority[b.st.kind]||(a.st.remaining??0)-(b.st.remaining??0)||byName(a.p,b.p)).map(x=>x.p)}
+function mergeImported(existing,rows,replaceExistingNames=false){
+ const result=[...existing];let added=0,skipped=0,updated=0;
+ // Maps replace the quadratic full-list scans that stalled large VCF imports.
+ const phoneOwners=new Map(),unphonedNames=new Map(),indices=new Map();
+ const nameKey=(name,family,area)=>`${name.trim().toLowerCase()}|${family||''}|${area||''}`;
+ result.forEach((p,i)=>{
+   indices.set(p.id,i);
+   for(const ph of(p.phones||[])){let n=normalizePhone(ph);if(n&&!phoneOwners.has(n))phoneOwners.set(n,p.id)}
+   if(!(p.phones||[]).length)unphonedNames.set(nameKey(p.name||'',p.family,p.area),p.id);
+ });
+ for(const item of rows){
+  const name=String(item.name||'').trim()||'بدون اسم';
+  const phones=[...new Set((Array.isArray(item.phones)?item.phones:[item.phone||'']).map(normalizePhone).filter(Boolean))];
+  if(name==='بدون اسم'&&!phones.length){skipped++;continue}
+  const ownerId=phones.find(n=>phoneOwners.has(n));
+  const foundId=ownerId?phoneOwners.get(ownerId):(!phones.length?unphonedNames.get(nameKey(name,item.family,item.area)):null);
+  const foundIndex=foundId==null?undefined:indices.get(foundId);
+  if(foundIndex!==undefined){
+   const found=result[foundIndex];
+   const extra=(Array.isArray(item.phones)?phones:[]).filter(n=>!phoneOwners.has(n));
+   const broken=/^(?:بدون اسم|\?{2,}|�+|[ØÙÃ][\s\S]*)$/i.test((found.name||'').trim())||(found.name||'').includes('�')||/^contact[\s\d]*$/i.test((found.name||'').trim());
+   const fixedName=(broken||replaceExistingNames)&&name!=='بدون اسم'&&!name.includes('�')&&name!==found.name;
+   if(extra.length||fixedName){result[foundIndex]={...found,name:fixedName?name:found.name,phones:[...(found.phones||[]),...extra]};for(const n of extra)phoneOwners.set(n,found.id);updated++}else skipped++;
+   continue;
+  }
+  const unique=phones.filter(n=>!phoneOwners.has(n));
+  const p=newPerson({name,phones:unique,area:item.area||'',address:item.address||'',family:item.family||'',servant:!!item.servant});
+  indices.set(p.id,result.length);result.push(p);for(const n of unique)phoneOwners.set(n,p.id);
+  if(!unique.length)unphonedNames.set(nameKey(p.name,p.family,p.area),p.id);
+  added++;
+ }
+ return {people:result,added,updated,skipped};
+}
+function countSummary(people,settings){
+ let servants=0,confessionOverdue=0,confessionDue=0,visitDue=0,visitsThisMonth=0;
+ const month=today().slice(0,7),now=today();
+ for(const p of people){
+  if(p.servant)servants++;
+  const cs=confessionStatus(p,settings,now);
+  if(cs.kind==='overdue')confessionOverdue++;
+  if(cs.kind==='overdue'||cs.kind==='due')confessionDue++;
+  const vs=visitStatus(p,settings,now);
+  if(vs.kind==='overdue'||vs.kind==='due')visitDue++;
+  for(const v of(p.visits||[]))if(v.date.startsWith(month))visitsThisMonth++;
+ }
+ return {people:people.length,servants,confessionOverdue,confessionDue,visitDue,visitsThisMonth};
+}
+// Encrypted vault: PBKDF2-SHA256 + AES-256-GCM. Only ciphertext persisted.
+const DB='alraei-private-v1',STORE='vault',RECORD='primary',AUTO_KEY='remembered-device-key';
+const textEncoder=new TextEncoder(),textDecoder=new TextDecoder();
+const b64=bytes=>{let binary='';for(let i=0;i<bytes.length;i+=8192)binary+=String.fromCharCode(...bytes.subarray(i,i+8192));return btoa(binary)};
+const unb64=str=>Uint8Array.from(atob(str),c=>c.charCodeAt(0));
+function openDB(){return new Promise((resolve,reject)=>{if(!globalThis.indexedDB)return reject(new Error('متصفحك لا يدعم حفظ البيانات المحلية'));let req=indexedDB.open(DB,1);req.onupgradeneeded=()=>req.result.createObjectStore(STORE);req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error)})}
+async function dbOp(mode,fn){let db=await openDB();try{return await new Promise((resolve,reject)=>{let tx=db.transaction(STORE,mode),req=fn(tx.objectStore(STORE));req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error);tx.onabort=()=>reject(tx.error)})}finally{db.close()}}
+const readVault=()=>dbOp('readonly',s=>s.get(RECORD));
+const storeVault=record=>dbOp('readwrite',s=>s.put(record,RECORD));
+const readAutoKey=()=>dbOp('readonly',s=>s.get(AUTO_KEY));
+const storeAutoKey=(key,salt)=>dbOp('readwrite',s=>s.put({key,salt:b64(salt)},AUTO_KEY));
+const clearAutoKey=()=>dbOp('readwrite',s=>s.delete(AUTO_KEY));
+async function clearEntireVault(){
+ const db=await openDB();try{await new Promise((resolve,reject)=>{
+  const tx=db.transaction(STORE,'readwrite');tx.objectStore(STORE).clear();tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error||new Error('تعذّر مسح التخزين'));tx.onabort=()=>reject(tx.error||new Error('تم إلغاء المسح'));
+ })}finally{db.close()}
+}
+async function rememberThisDevice(){if(!unlocked)return;try{await storeAutoKey(unlocked.key,unlocked.salt)}catch(err){console.warn('Remember-device unavailable:',err);toast('الجهاز لم يسمح بحفظ الفتح التلقائي؛ قد يطلب كلمة المرور مرة أخرى.')}}
+async function autoOpen(){if(!vault)return false;try{let saved=await readAutoKey();if(!saved?.key||saved.salt!==vault.salt)return false;let restored=await decryptWithKey(vault,saved.key);if(!restored||!Array.isArray(restored.people)||!restored.settings)return false;data=restored;ensureFamilySchema();unlocked={key:saved.key,salt:unb64(saved.salt)};page='home';render();return true}catch(err){console.warn('Auto-open unavailable:',err);return false}}
+
+async function keyFrom(password,salt){if(!crypto?.subtle)throw Error('التشفير غير متاح. افتح التطبيق في متصفح آمن HTTPS أو كتطبيق iPhone.');const base=await crypto.subtle.importKey('raw',textEncoder.encode(password),'PBKDF2',false,['deriveKey']);return crypto.subtle.deriveKey({name:'PBKDF2',salt,iterations:310000,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['encrypt','decrypt'])}
+async function newVault(password,plain){let salt=crypto.getRandomValues(new Uint8Array(16)),key=await keyFrom(password,salt),envelope=await encryptWithKey(plain,key,salt);await storeVault(envelope);return {key,salt}}
+async function openVault(password,envelope){try{const salt=unb64(envelope.salt),key=await keyFrom(password,salt),data=await decryptWithKey(envelope,key);if(!data||!Array.isArray(data.people)||!data.settings)throw Error();return {key,salt,data}}catch{throw Error('كلمة المرور غير صحيحة أو ملف البيانات تالف')}}
+async function encryptWithKey(data,key,salt,preSerialized=false){let iv=crypto.getRandomValues(new Uint8Array(12));let ct=await crypto.subtle.encrypt({name:'AES-GCM',iv},key,textEncoder.encode(preSerialized?data:JSON.stringify(data)));return {format:'alraei-v1',algorithm:'AES-256-GCM / PBKDF2-SHA256',iterations:310000,salt:b64(salt),iv:b64(iv),ciphertext:b64(new Uint8Array(ct))}}
+async function decryptWithKey(envelope,key){let plain=await crypto.subtle.decrypt({name:'AES-GCM',iv:unb64(envelope.iv)},key,unb64(envelope.ciphertext));return JSON.parse(textDecoder.decode(plain))}
+function validEnvelope(e){return !!(e&&e.format==='alraei-v1'&&typeof e.salt==='string'&&typeof e.iv==='string'&&typeof e.ciphertext==='string'&&e.salt.length<100&&e.iv.length<100&&e.ciphertext.length>8&&e.ciphertext.length<20000000)}
+function downloadFile(name,content,type='application/json'){const blob=new Blob([content],{type}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),20000)}
+
+
+function parseCSV(s){s=s.replace(/^\ufeff/,'');let sample=s.split(/\r?\n/)[0]||'';let delimiter=['\t',';',','].sort((a,b)=>sample.split(b).length-sample.split(a).length)[0];let rows=[],row=[],col='',quoted=false;for(let i=0;i<s.length;i++){let c=s[i];if(c==='"'){if(quoted&&s[i+1]==='"'){col+='"';i++}else quoted=!quoted}else if(c===delimiter&&!quoted){row.push(col);col=''}else if((c==='\n'||c==='\r')&&!quoted){if(c==='\r'&&s[i+1]==='\n')i++;row.push(col);if(row.some(x=>x.trim()))rows.push(row);row=[];col=''}else col+=c}row.push(col);if(row.some(x=>x.trim()))rows.push(row);return rows}
+function normalizedCharset(charset){
+ const c=String(charset||'utf-8').replace(/["']/g,'').trim().toLowerCase();
+ return {'cp1256':'windows-1256','windows1256':'windows-1256','arabic':'iso-8859-6','utf8':'utf-8','utf16':'utf-16le','utf-16':'utf-16le','utf16le':'utf-16le','utf16be':'utf-16be','cp1252':'windows-1252'}[c]||c;
+}
+function decodeBytes(bytes,charset='utf-8'){
+ try{return new TextDecoder(normalizedCharset(charset),{fatal:false}).decode(bytes)}
+ catch{return new TextDecoder('utf-8',{fatal:false}).decode(bytes)}
+}
+function bytesFromBase64(s){try{return Uint8Array.from(atob(s.replace(/[\s\r\n]/g,'')),c=>c.charCodeAt(0))}catch{return null}}
+function decodeQP(value,charset='utf-8'){
+ const out=[],enc=new TextEncoder();
+ for(let i=0;i<value.length;){
+  if(value[i]==='='&&/^[0-9a-f]{2}$/i.test(value.slice(i+1,i+3))){out.push(parseInt(value.slice(i+1,i+3),16));i+=3;continue}
+  if(value[i]==='='&&(value[i+1]==='\n'||value[i+1]==='\r')){i++;while(/[\r\n]/.test(value[i]||''))i++;continue}
+  const cp=value.codePointAt(i),ch=String.fromCodePoint(cp);out.push(...enc.encode(ch));i+=ch.length;
+ }
+ return decodeBytes(new Uint8Array(out),charset);
+}
+function fixMojibake(s){
+ // Repair names exported with UTF-8 Arabic bytes accidentally decoded as Latin-1 / Windows-1252.
+ if(!/[ØÙÃ]/.test(s)||/[\u0600-\u06ff]/.test(s))return s;
+ const extra={'€':128,'‚':130,'ƒ':131,'„':132,'…':133,'†':134,'‡':135,'ˆ':136,'‰':137,'Š':138,'‹':139,'Œ':140,'Ž':142,'‘':145,'’':146,'“':147,'”':148,'•':149,'–':150,'—':151,'˜':152,'™':153,'š':154,'›':155,'œ':156,'ž':158,'Ÿ':159};
+ const chars=[...s];if(chars.some(c=>c.charCodeAt(0)>255&&!Object.prototype.hasOwnProperty.call(extra,c)))return s;
+ try{let bytes=Uint8Array.from(chars,c=>extra[c]??c.charCodeAt(0));const repaired=new TextDecoder('utf-8',{fatal:true}).decode(bytes);return /[\u0600-\u06ff]/.test(repaired)?repaired:s}catch{return s}
+}
+function unescapeCard(s){return String(s||'').replace(/\\[nN]/g,' ').replace(/\\([,;\\:])/g,'$1').trim()}
+function unfoldVCards(s){
+ const lines=String(s||'').replace(/^\uFEFF/,'').replace(/\r\n?/g,'\n').split('\n');let out=[];
+ for(let raw of lines){if(!out.length){out.push(raw);continue}
+  const prev=out[out.length-1],head=prev.split(':',1)[0];
+  if(/ENCODING=QUOTED-PRINTABLE/i.test(head)&&prev.endsWith('=')){out[out.length-1]=prev.slice(0,-1)+raw.replace(/^[ \t]/,'');continue}
+  if(/^[ \t]/.test(raw)){out[out.length-1]+=raw.slice(1);continue}
+  if(/ENCODING=(?:B|BASE64)(?:;|$)/i.test(head)&&raw&&!raw.includes(':')&&/^[A-Za-z\d+/=\s]+$/.test(raw)){out[out.length-1]+=raw.trim();continue}
+  out.push(raw);
+ }
+ return out.join('\n');
+}
+function parseVCF(text){
+ const s=unfoldVCards(text),result=[];
+ const blocks=s.match(/BEGIN:VCARD\b[\s\S]*?END:VCARD/gi)||[];
+ for(const block of blocks){
+  let fullname='',structured='',phones=[],otherName='';
+  for(const line of block.split('\n')){
+   const cut=line.indexOf(':');if(cut<0)continue;
+   const left=line.slice(0,cut),raw=line.slice(cut+1).trim();
+   const key=left.split(';')[0].split('.').pop().trim().toUpperCase();
+   if(!['FN','N','TEL','X-PHONETIC-FIRST-NAME','X-PHONETIC-LAST-NAME'].includes(key))continue;
+   const charset=(left.match(/(?:^|;)CHARSET\s*=\s*([^;]+)/i)||[])[1]||'utf-8';
+   let val=raw;
+   if(/ENCODING\s*=\s*QUOTED-PRINTABLE/i.test(left))val=decodeQP(raw,charset);
+   else if(/ENCODING\s*=\s*(?:B|BASE64)(?:;|$)/i.test(left)){const bytes=bytesFromBase64(raw);if(bytes)val=decodeBytes(bytes,charset)}
+   else if(/^=\?([^?]+)\?[BQ]\?[^?]+\?=$/i.test(raw)){
+    const m=raw.match(/^=\?([^?]+)\?([BQ])\?([^?]+)\?=$/i);
+    if(m){let bytes=m[2].toUpperCase()==='B'?bytesFromBase64(m[3]):null;val=bytes?decodeBytes(bytes,m[1]):decodeQP(m[3].replace(/_/g,' '),m[1])}
+   }
+   val=fixMojibake(val);
+   if(key==='FN'){
+    const name=unescapeCard(val);
+    // Prefer Arabic full name if an export includes multiple language variants.
+    if(name&&(!fullname||(/[\u0600-\u06ff]/.test(name)&&!/[\u0600-\u06ff]/.test(fullname))))fullname=name;
+   }else if(key==='N'){
+    const parts=val.split(/(?<!\\);/);const named=[parts[1],parts[0],parts[2],parts[3],parts[4]].filter(Boolean).map(unescapeCard).join(' ').trim();
+    if(named&&(!structured||(/[\u0600-\u06ff]/.test(named)&&!/[\u0600-\u06ff]/.test(structured))))structured=named;
+   }else if(key==='TEL'){
+    const tel=normalizePhone(val.replace(/^tel:/i,'').split(/[;,]/)[0]);
+    if(tel&&/\d/.test(tel)&&!phones.includes(tel))phones.push(tel);
+   }else if(val)otherName=[otherName,unescapeCard(val)].filter(Boolean).join(' ');
+  }
+  const name=(fullname||structured||otherName||'بدون اسم').trim();
+  if(name!=='بدون اسم'||phones.length)result.push({name,phones});
+ }
+ return result;
+}
+function contactDecodeScore(s){
+ const ar=(s.match(/[\u0600-\u06ff]/g)||[]).length;
+ const bad=(s.match(/\uFFFD/g)||[]).length;
+ const weird=(s.match(/[ØÙ][\u0080-\u00ff]/g)||[]).length;
+ const syntax=(s.match(/BEGIN:VCARD/gi)||[]).length;
+ return ar*3-bad*35-weird*7+(syntax?250+syntax:0);
+}
+async function decodeContactFile(file,encoding='auto'){
+ const bytes=new Uint8Array(await file.arrayBuffer());
+ if(encoding!=='auto')return decodeBytes(bytes,encoding);
+ if(bytes[0]===0xff&&bytes[1]===0xfe)return decodeBytes(bytes,'utf-16le');
+ if(bytes[0]===0xfe&&bytes[1]===0xff)return decodeBytes(bytes,'utf-16be');
+ if(bytes[0]===0x42&&bytes[1]===0&&bytes[2]===0x45&&bytes[3]===0)return decodeBytes(bytes,'utf-16le');
+ if(bytes[0]===0&&bytes[1]===0x42&&bytes[2]===0&&bytes[3]===0x45)return decodeBytes(bytes,'utf-16be');
+ try{return new TextDecoder('utf-8',{fatal:true}).decode(bytes)}catch{}
+ const opts=['utf-8','windows-1256','iso-8859-6'];
+ let best='',bestScore=-Infinity;
+ for(let enc of opts){let decoded=decodeBytes(bytes,enc),score=contactDecodeScore(decoded);
+  if(enc==='utf-8')score+=2; // Prefer correctly decoded UTF-8 when candidates tie.
+  if(score>bestScore){bestScore=score;best=decoded}
+ }
+ return best;
+}
+
+async function inflateRaw(data){if(!('DecompressionStream' in globalThis))throw Error('استيراد Excel غير مدعوم في نسخة المتصفح الحالية. احفظ الملف CSV ثم استورده، أو استخدم نسخة iPhone المحدثة.');try{return new Uint8Array(await new Response(new Blob([data]).stream().pipeThrough(new DecompressionStream('deflate-raw'))).arrayBuffer())}catch{throw Error('تعذّر فك ضغط ملف Excel على هذا الجهاز. احفظه بصيغة CSV ثم جرّب تاني.')}}
+const u16=(v,o)=>v.getUint16(o,true),u32=(v,o)=>v.getUint32(o,true);
+async function unzip(array){let v=new DataView(array),len=v.byteLength,offset=-1;for(let i=len-22;i>=Math.max(0,len-65557);i--){if(u32(v,i)===0x06054b50){offset=i;break}}if(offset<0)throw Error('ملف Excel غير صالح');let total=u16(v,offset+10),cursor=u32(v,offset+16),decoder=new TextDecoder(),files=new Map();for(let i=0;i<total;i++){if(u32(v,cursor)!==0x02014b50)throw Error('فشل قراءة Excel');let method=u16(v,cursor+10),comp=u32(v,cursor+20),uncomp=u32(v,cursor+24),nameLen=u16(v,cursor+28),extra=u16(v,cursor+30),comment=u16(v,cursor+32),loc=u32(v,cursor+42),name=decoder.decode(new Uint8Array(array,cursor+46,nameLen));if(!name.endsWith('/')&&(name==='xl/sharedStrings.xml'||name.startsWith('xl/worksheets/'))){if(uncomp>12*1024*1024)throw Error('ورقة Excel كبيرة جدًا أو غير آمنة');if(u32(v,loc)!==0x04034b50)throw Error('ملف Excel تالف');let start=loc+30+u16(v,loc+26)+u16(v,loc+28);let block=new Uint8Array(array,start,comp);let out=method===0?block:method===8?await inflateRaw(block):null;if(!out)throw Error('نوع ضغط Excel غير مدعوم');files.set(name,decoder.decode(out))}cursor+=46+nameLen+extra+comment}return files}
+function xml(s){const doc=new DOMParser().parseFromString(s,'application/xml');if(doc.querySelector('parsererror'))throw Error('تعذّر قراءة بيانات Excel');return doc}
+function getCellText(cell,shared){let type=cell.getAttribute('t');if(type==='inlineStr')return [...cell.getElementsByTagName('t')].map(n=>n.textContent).join('');let v=cell.getElementsByTagName('v')[0]?.textContent||'';if(type==='s')return shared[Number(v)]||'';return v}
+function columnIndex(reference){let part=(reference||'').match(/^[A-Z]+/i)?.[0]||'A',n=0;for(let c of part.toUpperCase())n=n*26+c.charCodeAt(0)-64;return n-1}
+async function parseXLSX(file){let files=await unzip(await file.arrayBuffer()),ss=files.get('xl/sharedStrings.xml'),shared=[];if(ss){let doc=xml(ss);for(let si of doc.getElementsByTagName('si'))shared.push([...si.getElementsByTagName('t')].map(n=>n.textContent).join(''))}let path=[...files.keys()].filter(n=>/^xl\/worksheets\/sheet\d+\.xml$/i.test(n)).sort((a,b)=>Number(a.match(/sheet(\d+)/i)[1])-Number(b.match(/sheet(\d+)/i)[1]))[0];if(!path)throw Error('لا توجد ورقة عمل مدعومة داخل الملف');let doc=xml(files.get(path)),out=[];for(let r of doc.getElementsByTagName('row')){let cells=[];for(let c of r.getElementsByTagName('c')){let ix=columnIndex(c.getAttribute('r'));if(ix<100)cells[ix]=getCellText(c,shared)}if(cells.some(x=>String(x||'').trim()))out.push(cells.map(x=>String(x??'')))}return out}
+async function readImportFile(file,vcfEncoding="auto"){if(!file)throw Error('اختار ملف الأول');if(file.size>8*1024*1024)throw Error('حجم الملف كبير. الحد الأقصى 8 ميجابايت');const name=file.name.toLowerCase();if(name.endsWith('.vcf')){const contacts=parseVCF(await decodeContactFile(file,vcfEncoding));if(!contacts.length)throw Error('لم يتم العثور على أسماء داخل ملف VCF. جرّب تصدير جهات الاتصال بصيغة vCard.');return {kind:'contacts',headers:['الاسم','رقم الموبايل'],rows:contacts.map(x=>[x.name,x.phones.join(' / ')]),contacts,vcfEncoding};}let rows;if(name.endsWith('.csv')||name.endsWith('.txt'))rows=parseCSV(await file.text());else if(name.endsWith('.xlsx'))rows=await parseXLSX(file);else throw Error('الملفات المدعومة: CSV وExcel XLSX وVCF');if(rows.length<1)throw Error('الملف خالي');const headers=rows[0].map((x,i)=>x||`عمود ${i+1}`);return {kind:name.endsWith('.xlsx')?'excel':'csv',headers,rows:rows.slice(1).filter(r=>r.some(x=>String(x||'').trim()))}}
+function guessColumns(headers){const has=(names)=>headers.findIndex(h=>names.some(x=>arabicDigits(String(h)).toLowerCase().includes(x)));let familyIndex=has(['العائلة','family','أسرة','الاسرة']);if(familyIndex>=0&&/^(family name|last name)$/i.test(String(headers[familyIndex]).trim()))familyIndex=-1;return {name:Math.max(0,has(['الاسم','name','full name','اسم'])),phone:Math.max(0,has(['موبايل','هاتف','تليفون','telephone','phone','mobile','tel','رقم'])),area:has(['منطقة','area','region','zone']),family:familyIndex,address:has(['عنوان','address'])}}
+function mapImportRows(sheet,mapping){
+ if(sheet.kind==='contacts')return sheet.contacts.map(c=>({name:c.name,phones:c.phones}));
+ const headers=sheet.headers||[],lower=headers.map(x=>String(x).toLowerCase());
+ const google=lower.some(h=>/^phone\s*\d+\s*-\s*value$/.test(h));
+ const phoneCols=google?lower.map((h,i)=>/^phone\s*\d+\s*-\s*value$/.test(h)?i:-1).filter(i=>i>=0):[];
+ const col=(r,pattern)=>{const i=lower.findIndex(h=>pattern.test(h));return i>=0?String(r[i]||'').trim():''};
+ return sheet.rows.map(r=>{
+  let name=String(r[mapping.name]||'').trim();
+  if(google&&!name)name=[col(r,/^(given name|first name)$/),col(r,/^(middle name)$/),col(r,/^(family name|last name)$/)].filter(Boolean).join(' ');
+  const phones=google?[...new Set([String(r[mapping.phone]||'').trim(),...phoneCols.map(i=>String(r[i]||'').trim())].filter(Boolean))]:null;
+  return {name,phone:String(r[mapping.phone]||'').trim(),...(phones?{phones}:{}),area:mapping.area>=0?String(r[mapping.area]||'').trim():'',family:mapping.family>=0?String(r[mapping.family]||'').trim():'',address:mapping.address>=0?String(r[mapping.address]||'').trim():''};
+ });
+}
+
+
+// Native notifications only. Browser preview never claims to deliver offline background alerts.
+const START=110000,END=199999;
+function nativeAvailable(){return !!(globalThis.Capacitor?.isNativePlatform?.())}
+async function plugin(){if(!nativeAvailable())return null;try{return (await import('@capacitor/local-notifications')).LocalNotifications}catch(e){console.warn('Native notifications unavailable',e);return null}}
+async function askNotificationPermission(){let n=await plugin();if(!n)return {ok:false,reason:'الإشعارات المحلية تتطلب تثبيت نسخة iPhone الأصلية من التطبيق'};let p=await n.requestPermissions();return {ok:p.display==='granted',reason:p.display==='granted'?'تم السماح بالتنبيهات':'لم يتم السماح بالتنبيهات من إعدادات الآيفون'}}
+function localTime(date,h,m){let d=parseDate(date);if(!d)return null;d.setHours(h,m,0,0);return d}
+async function rescheduleNotifications(data){let n=await plugin();if(!n)return {ok:false,reason:'ليست نسخة iPhone الأصلية'};let pending=(await n.getPending()).notifications||[];let mine=pending.filter(p=>p.id>=START&&p.id<=END).map(p=>({id:p.id}));if(mine.length)await n.cancel({notifications:mine});if(!data.settings.notifyEnabled)return {ok:true,scheduled:0};const permission=await n.checkPermissions();if(permission.display!=='granted')return {ok:false,reason:'لا توجد صلاحية لإرسال التنبيهات'};
+ let s=data.settings,h=Number(s.notifyHour)||0,m=Number(s.notifyMinute)||0,now=new Date(),t=today(),items=[],idx=START+1;
+ // A fixed recurring summary remains on the phone when the app is closed.
+ items.push({id:idx++,title:'الراعي — ملخص المتابعة',body:'افتح التطبيق لمراجعة الأشخاص المستحقين والمتأخرين عن المتابعة.',schedule:{on:{hour:h,minute:m}},extra:{kind:'summary'}});
+ const due=data.people.filter(p=>!p.paused&&['overdue','due','ok'].includes(confessionStatus(p,s).kind)).map(p=>({p,status:confessionStatus(p,s)})).sort((a,b)=>a.status.remaining-b.status.remaining);
+ // A small number of overdue people get recurring calendar notifications on iOS:
+ // these keep repeating every day until the app is opened and the confession is marked.
+ // iOS pending limit is ~64, so the remainder is covered by the daily summary.
+ const urgent=due.filter(x=>x.status.remaining<=0).slice(0,20),used=new Set();
+ for(const {p} of urgent){used.add(p.id);items.push({id:idx++,title:'متابعة الاعتراف',body:s.showNamesOnLock?`متابعة: ${p.name}`:'يوجد شخص بحاجة إلى متابعة الاعتراف.',schedule:{on:{hour:h,minute:m}},extra:{kind:'confession',personId:p.id}})}
+ // Future due dates get a one-shot prompt; after reopening, the person joins recurring reminders.
+ for(const {p,status} of due.filter(x=>!used.has(x.p.id)&&x.status.remaining>=0).slice(0,28)){let when=localTime(status.due,h,m);if(!when||when<=now)when=localTime(addDays(t,1),h,m);items.push({id:idx++,title:'متابعة الاعتراف',body:s.showNamesOnLock?`متابعة: ${p.name}`:'يوجد موعد متابعة اعتراف.',schedule:{at:when},extra:{kind:'confession',personId:p.id}})}
+ for(const p of data.people){if(items.length>=61)break;let vs=visitStatus(p,s);if(!p.visitPaused&&vs.due&&vs.remaining>=0&&vs.remaining<=14){let when=localTime(vs.due,h,m);if(when&&when>now)items.push({id:idx++,title:'متابعة الافتقاد',body:s.showNamesOnLock?`افتقاد: ${p.name}`:'يوجد موعد افتقاد أو اتصال.',schedule:{at:when},extra:{kind:'visit',personId:p.id}})}}
+ items=items.slice(0,62);await n.schedule({notifications:items});return {ok:true,scheduled:items.length};}
+
+
+
+
+
+const root=document.getElementById('app'),toastEl=document.getElementById('toast');
+let familySearch='',familyPickerReturnPage='family-visits',familyVisitSelectedId=null,familyVisitSearch='';const LIST_BATCH=55,PICKER_BATCH=70,FAMILY_BATCH=35;let peopleLimit=LIST_BATCH,visitLimit=LIST_BATCH,pickerLimit=PICKER_BATCH,familyLimit=FAMILY_BATCH,searchUpdateTimer=null;let replaceImportNames=false;let pendingImportFile=null;let pendingNotificationPerson=null;let vault=null,unlocked=null,data=null,page='home',search='',confFilter='overdue',peopleFilter='all',justCompletedId=null,justVisitedIds=[],familySelectMode=false,familySelection=[],familyEditingId=null,modal='',selected=null,imported=null,mapping=null,lastUndo=null,saveChain=Promise.resolve(),lockAt=null,toastTimer=null;
+function e(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function a(s){return e(s)}
+const longDateFormatter=new Intl.DateTimeFormat('ar-EG',{day:'numeric',month:'short',year:'numeric'});
+const shortDateFormatter=new Intl.DateTimeFormat('ar-EG',{day:'numeric',month:'short'});
+const formattedDates=new Map(),formattedShortDates=new Map();
+function cachedDateFormat(s,formatter,cache,fallback){if(!s)return fallback;if(cache.has(s))return cache.get(s);let d=parseDate(s);if(!d)return fallback;const result=formatter.format(d);if(cache.size>5000)cache.clear();cache.set(s,result);return result}
+function faDate(s){return cachedDateFormat(s,longDateFormatter,formattedDates,'غير مسجل')}
+function shortDate(s){return cachedDateFormat(s,shortDateFormatter,formattedShortDates,'غير محدد')}
+function empty(msg='لا توجد بيانات بعد',icon='◌'){return `<div class="empty"><div class="big">${icon}</div>${e(msg)}</div>`}
+function button(text,action,cls='btn',params=''){return `<button type="button" class="${cls}" data-action="${action}" ${params}>${text}</button>`}
+function fmtStatus(st){if(st.kind==='paused')return '<span class="tag">المتابعة موقوفة</span>';if(st.kind==='unknown')return '<span class="tag">بلا تاريخ</span>';if(st.kind==='overdue')return `<span class="tag overdue">متأخر ${st.overdue} يوم</span>`;if(st.kind==='due')return '<span class="tag due">مستحق اليوم</span>';return `<span class="tag ok">متبقي ${st.remaining} يوم</span>`}
+function nameInitial(p){return e((p.name.trim()||'؟').slice(0,1))}
+function safeId(p){return a(p.id)}
+function waNumber(phone){const normalized=normalizePhone(phone);return normalized.startsWith('0')&&normalized.length===11?'20'+normalized.slice(1):normalized.replace(/[^0-9]/g,'')}
+function toast(msg,withUndo=false){clearTimeout(toastTimer);toastEl.innerHTML=e(msg)+(withUndo?' <button type="button" style="margin-right:10px;color:#fff;border:1px solid #fff8;background:transparent;border-radius:8px;padding:4px 8px;font-weight:800" id="undo-toast">تراجع</button>':'');toastEl.classList.add('show');toastTimer=setTimeout(()=>toastEl.classList.remove('show'),withUndo?9000:3500)}
+function showError(err){console.error(err);toast(err?.message||'حصل خطأ غير متوقع')}
+function ensureData(){if(!data)throw Error('يرجى فتح الخزنة أولًا')}
+function save(){ensureData();const snapshot=JSON.stringify(data),key=unlocked.key,salt=unlocked.salt;saveChain=saveChain.catch(()=>{}).then(async()=>{let env=await encryptWithKey(snapshot,key,salt,true);await storeVault(env);vault=env;if(nativeAvailable())await rescheduleNotifications(JSON.parse(snapshot)).catch(console.warn)});return saveChain.catch(showError)}
+async function transaction(fn){fn();render();await save()}
+let peopleIndexRef=null,peopleIndexSize=-1,peopleIdIndex=new Map(),familyIndexRef=null,familyIndexSize=-1,familyPersonIndex=new Map();
+function ensurePersonIndex(){if(!data)return;if(peopleIndexRef===data.people&&peopleIndexSize===data.people.length)return;peopleIdIndex=new Map(data.people.map(p=>[p.id,p]));peopleIndexRef=data.people;peopleIndexSize=data.people.length}
+function findP(id){ensurePersonIndex();return peopleIdIndex.get(id)||null}
+function ensureFamilySchema(){if(data&&!Array.isArray(data.families))data.families=[]}
+function ensureFamilyIndex(){if(!data)return;ensureFamilySchema();if(familyIndexRef===data.families&&familyIndexSize===data.families.length)return;familyPersonIndex=new Map();for(const f of data.families)for(const id of f.memberIds||[])if(!familyPersonIndex.has(id))familyPersonIndex.set(id,f);familyIndexRef=data.families;familyIndexSize=data.families.length}
+function familyForPerson(id){ensureFamilyIndex();return familyPersonIndex.get(id)||null}
+function familyMembers(f){return (f.memberIds||[]).map(id=>findP(id)).filter(Boolean)}
+function familyTitle(f){return f.name||('أسرة '+(findP(f.headId)?.name||'بدون اسم'))}
+function familyHead(f){return findP(f.headId)||familyMembers(f)[0]||null}
+function cleanupFamilies(){
+ ensureFamilySchema();const ids=new Set(data.people.map(p=>p.id));const assigned=new Set();
+ data.families=data.families.map(f=>{let members=[...new Set(f.memberIds||[])].filter(id=>ids.has(id)&&!assigned.has(id));members.forEach(id=>assigned.add(id));return {...f,memberIds:members,headId:members.includes(f.headId)?f.headId:members[0]}}).filter(f=>f.memberIds.length>=2);
+}
+function beginFamilySelection(existingId=null){
+ ensureFamilySchema();const f=existingId?data.families.find(x=>x.id===existingId):null;
+ if(existingId&&!f)throw Error('الأسرة غير موجودة');
+ familyPickerReturnPage=page==='family-visits'?'family-visits':'visits';
+ familySelectMode=true;familyEditingId=f?.id||null;familySelection=f?[...f.memberIds]:[];
+ familySearch='';pickerLimit=PICKER_BATCH;search='';confFilter='all';page='visits';render();window.scrollTo(0,0);
+}
+function endFamilySelection(){familySelectMode=false;familySelection=[];familyEditingId=null;familySearch='';pickerLimit=PICKER_BATCH;page=familyPickerReturnPage;render();window.scrollTo(0,0)}
+function familyPickerCandidates(){return data.people.filter(p=>personSearch(p,familySearch)).sort(byName)}
+function familyPickerListHtml(list){return list.length?list.map(p=>{const f=familyForPerson(p.id);const chosen=familySelection.includes(p.id);return `<label class="family-picker ${chosen?'selected':''}"><input type="checkbox" class="family-member-check" value="${safeId(p)}" ${chosen?'checked':''}><span><b>${e(p.name)}</b><small>${e([p.area,p.phones?.[0]].filter(Boolean).join(' · '))}${f?' · مرتبط بأسرة '+e(familyTitle(f)):''}</small></span></label>`}).join(''):empty('مفيش أشخاص مطابقين للبحث — جرّب جزءًا من الاسم أو الرقم')}
+function familyPickerResultsHtml(){const matches=familyPickerCandidates(),visible=matches.slice(0,pickerLimit);return {results:familyPickerListHtml(visible),total:matches.length,visible:visible.length}}
+function pickedChipsHtml(){let chosen=familySelection.map(findP).filter(Boolean);return chosen.length?chosen.map(p=>`<span class="tag">✓ ${e(p.name)}</span>`).join(''):'<span class="help">لم يتم اختيار أفراد بعد</span>'}
+function pickerPagingHtml(total,visible){return total>visible?`<div class="list-more">${button('عرض المزيد من الأسماء','more-family-picker','btn secondary',`data-count="${total}"`)}</div>`:''}
+function renderFamilyPicker(){
+ const result=familyPickerResultsHtml();
+ return `<section class="main-card"><h1 class="page-title">${familyEditingId?'تعديل أفراد الأسرة':'تكوين أسرة جديدة'}</h1><p class="subtitle">ابحث بالاسم أو رقم التليفون. الأسماء اللي اختارتها هتفضل محددة حتى بعد تغيير البحث.</p>
+ <label class="searchbar family-searchbar"><span>⌕</span><input id="family-search" type="search" autocomplete="off" aria-label="بحث عن فرد الأسرة" placeholder="ابحث عن اسم أو رقم تليفون أو منطقة..." value="${a(familySearch)}"></label>
+ <div class="family-filter-note" id="family-search-count">${result.total} شخص مطابق من ${data.people.length}</div>
+ <div class="family-picker-bar"><div class="count" id="family-picked-count">تم اختيار ${familySelection.length} شخص</div>
+ <div class="family-picker-selected" id="family-picked-chips">${pickedChipsHtml()}</div>
+ <div class="actions-inline">${button('التالي: اختيار رب الأسرة','family-next','btn',familySelection.length<2?'disabled':'')}${button('إلغاء','family-cancel','btn outline')}</div></div>
+ <div class="list" id="family-picker-results">${result.results}</div><div id="family-picker-paging">${pickerPagingHtml(result.total,result.visible)}</div></section>`;
+}
+function updateFamilyPickerResults(){const list=document.getElementById('family-picker-results');if(!list)return;const r=familyPickerResultsHtml();list.innerHTML=r.results;document.getElementById('family-search-count').textContent=`${r.total} شخص مطابق من ${data.people.length}`;document.getElementById('family-picker-paging').innerHTML=pickerPagingHtml(r.total,r.visible)}
+function renderFamilyForm(){
+ let people=familySelection.map(findP).filter(Boolean),f=familyEditingId?(data.families||[]).find(x=>x.id===familyEditingId):null;
+ if(people.length<2)return empty('اختار شخصين على الأقل');let defaultHead=people.some(p=>p.id===f?.headId)?f.headId:people[0].id;
+ return `<form id="family-form"><p class="subtitle">اختر رب الأسرة من الأفراد المحددين. البيانات الموجودة وسجلات كل فرد هتفضل محفوظة.</p><div class="field"><label>اسم الأسرة (اختياري)</label><input class="input" name="name" maxlength="140" value="${a(f?.name||'')}" placeholder="لو فاضي: أسرة + اسم رب الأسرة"></div><div class="field"><label>مين رب الأسرة؟ *</label>${people.map(p=>`<label class="family-head-option"><input type="radio" name="headId" value="${safeId(p)}" ${defaultHead===p.id?'checked':''} required><span>${e(p.name)}</span></label>`).join('')}</div><p class="help">لو حد من المحددين مرتبط بأسرة تانية، هنطلب تأكيد قبل نقله للأسرة الجديدة. مش هنمسح سجله.</p><button class="btn block" type="submit">${f?'حفظ تعديلات الأسرة':'حفظ الأسرة'}</button></form>`;
+}
+function familyVisitHistory(f){
+ const m=new Set(f.memberIds||[]),groups=new Map();
+ for(const p of familyMembers(f))for(const v of(p.visits||[])){
+  if(!v.groupVisitId)continue;
+  const key=v.groupVisitId+'|'+v.date;
+  if(!groups.has(key))groups.set(key,{date:v.date,type:v.type,people:new Set()});
+  groups.get(key).people.add(p.id);
+ }
+ return [...groups.values()].filter(x=>x.people.size>=2).sort((x,y)=>y.date.localeCompare(x.date)).slice(0,4);
+}
+function familySearchMatches(f,term){if(!term)return true;const members=familyMembers(f),head=familyHead(f);return normalizedTerm([familyTitle(f),head?.name,...members.flatMap(p=>[p.name,p.area,...(p.phones||[])])].join(' ')).includes(term)}
+function familyCardsFiltered(){const term=normalizedTerm(familyVisitSearch);return data.families.filter(f=>familySearchMatches(f,term))}
+function familyCardHtml(f){let members=familyMembers(f),head=familyHead(f),history=familyVisitHistory(f);
+ return `<div class="family-card ${familyVisitSelectedId===f.id?'family-visit-card-selected':''}">
+ <h3>${e(familyTitle(f))}</h3><p>رب الأسرة: <b>${e(head?.name||'غير محدد')}</b> · ${members.length} أفراد</p>
+ <div class="family-member-list">${members.map(p=>`<span class="family-member-chip ${p.id===head?.id?'head':''}">${p.id===head?.id?'★ ':''}${e(p.name)}</span>`).join('')}</div>
+ <div class="person-controls">${button('✓ تم افتقاد الأسرة اليوم','quick-family-visit','btn small',`data-family-id="${a(f.id)}"`)}${button('◷ اختار تاريخ الافتقاد','select-family-visit','btn small secondary',`data-family-id="${a(f.id)}"`)}${button('⌚ تحديد ميعاد افتقاد','schedule-family','btn small outline',`data-family-id="${a(f.id)}"`)}${button('تعديل أفراد الأسرة','family-edit','btn small outline',`data-family-id="${a(f.id)}"`)}${button('تفكيك الأسرة','family-remove','btn small outline',`data-family-id="${a(f.id)}"`)}</div>
+ ${history.length?`<div class="family-visit-history"><b style="font-size:11px">آخر الافتقادات الجماعية:</b>${history.map(h=>`<small>${faDate(h.date)} · ${e(h.type)} · ${h.people.size} أفراد</small>`).join('')}</div>`:''}</div>`
+}
+function familyPagingHtml(total,visible){return total>visible?`<div class="list-more">${button('عرض المزيد من الأسر','more-families','btn secondary')}</div>`:''}
+function familyListHtml(){const list=familyCardsFiltered(),visible=list.slice(0,familyLimit);return {html:visible.length?visible.map(familyCardHtml).join(''):empty(familyVisitSearch?'لا توجد أسر مطابقة للبحث.':'لا توجد أسر بعد. ابدأ بتكوين أسرة من الأسماء المسجلة.','⌂'),count:visible.length,total:list.length}}
+function renderFamilies(){
+ ensureFamilySchema();const r=familyListHtml();
+ return `<section class="card"><div class="section-header"><h2 class="section-title" style="margin:0">الأسر المسجلة (${data.families.length})</h2>${button('＋ تكوين أسرة','family-start','btn small secondary')}</div><p class="help">سجل افتقاد الأسرة اليوم أو بتاريخ سابق. البحث لا يغير البيانات.</p>
+ <label class="searchbar"><span>⌕</span><input id="family-visit-search" type="search" autocomplete="off" aria-label="ابحث عن أسرة" placeholder="ابحث باسم الأسرة أو أحد أفرادها..." value="${a(familyVisitSearch)}"></label>
+ <p class="list-summary" id="family-count">عرض ${r.count} من ${r.total} أسرة</p>
+ <div class="family-visit-list" id="family-visit-list">${r.html}</div><div id="family-visit-paging">${familyPagingHtml(r.total,r.count)}</div></section>`;
+}
+function updateFamilyList(){const r=familyListHtml(),list=document.getElementById('family-visit-list');if(!list)return;list.innerHTML=r.html;document.getElementById('family-count').textContent=`عرض ${r.count} من ${r.total} أسرة`;document.getElementById('family-visit-paging').innerHTML=familyPagingHtml(r.total,r.count)}
+function renderFamilyVisitsPage(){
+ ensureFamilySchema();
+ const f=(data.families||[]).find(x=>x.id===familyVisitSelectedId)||data.families[0];
+ const members=f?familyMembers(f):[];
+ const hist=f?familyVisitHistory(f):[];
+ return `<section class="main-card"><div class="section-header"><div><h1 class="page-title">افتقاد الأسر</h1><p class="subtitle">سجّل افتقاد الأسرة كلها في تاريخ اليوم أو أي تاريخ سابق، مرة واحدة لكل أفرادها.</p></div><span class="tag">${data.families.length} أسرة</span></div>
+ <div class="visit-nav-options">${button('افتقاد الأفراد','go-individual-visits','btn outline')}${button('＋ تكوين أسرة','family-start','btn secondary')}</div>
+ ${f?`<div class="actions-inline" style="margin:12px 0">${button('⌚ تحديد ميعاد افتقاد الأسرة','schedule-family','btn',`data-family-id="${a(f.id)}"`)}</div><div class="family-visit-form-panel" id="family-visit-editor"><h2>تسجيل افتقاد الأسرة</h2><p class="help">اختار الأسرة والتاريخ، وبعد الحفظ الزيارة هتتسجل في ملف كل فرد.</p>
+ <form id="family-visit-page-form"><div class="field"><label for="family-visit-choose">الأسرة *</label><select class="input" id="family-visit-choose" name="familyId" required>${data.families.map(x=>`<option value="${a(x.id)}" ${x.id===f.id?'selected':''}>${e(familyTitle(x))} (${familyMembers(x).length} أفراد)</option>`).join('')}</select></div>
+ <div class="family-visit-summary"><b>رب الأسرة:</b> ${e(familyHead(f)?.name||'غير محدد')}<div><b>الأفراد:</b> ${members.map(p=>e(p.name)).join(' · ')}</div>${hist.length?`<div><b>آخر افتقاد جماعي:</b> ${faDate(hist[0].date)}</div>`:''}</div>
+ <div class="field"><label for="family-visit-date">تاريخ الافتقاد *</label><input class="input" id="family-visit-date" name="date" type="date" required max="${today()}" value="${today()}"></div>
+ <div class="family-visit-preset">${button('اليوم','family-date-preset','btn small outline',`data-days="0"`)}${button('أمس','family-date-preset','btn small outline',`data-days="1"`)}${button('من أسبوع','family-date-preset','btn small outline',`data-days="7"`)}${button('من شهر','family-date-preset','btn small outline',`data-months="1"`)}</div>
+ <div class="fieldgrid"><div class="field"><label>نوع الافتقاد</label><select class="input" name="type"><option>زيارة منزلية</option><option>اتصال تليفوني</option><option>مقابلة بالكنيسة</option><option>متابعة أخرى</option></select></div><div class="field"><label>النتيجة</label><select class="input" name="result"><option>تم التواصل</option><option>لم يتم الرد</option><option>يحتاج إعادة متابعة</option></select></div></div>
+ <div class="field"><label>المتابعة القادمة</label><select class="input" name="follow"><option value="auto">بعد ${data.settings.visitDays} يوم من تاريخ الافتقاد</option><option value="7">بعد أسبوع</option><option value="30">بعد شهر</option><option value="none">بدون متابعة</option><option value="specific">تاريخ محدد</option></select></div><div class="field"><label>تاريخ المتابعة المحدد (لو اخترت تاريخًا محددًا)</label><input class="input" type="date" name="nextDate"></div>
+ <div class="field"><label>ملاحظة عامة (اختياري)</label><textarea class="input" rows="2" name="note" maxlength="800" placeholder="ملاحظة عن الافتقاد فقط"></textarea></div><button type="submit" class="btn block">✓ حفظ افتقاد الأسرة بتاريخ الاختيار</button>
+ <p class="help">لو سجلت افتقادًا أقدم من زيارة مسجلة بالفعل، مش هنغيّر تاريخ المتابعة المبني على الزيارة الأحدث. والافتقاد المتكرر بنفس التاريخ والنوع والنتيجة مش هيتسجل مرتين.</p></form></div>`:empty('مافيش أسر مسجلة. اضغط تكوين أسرة وعلّم على أفرادها أولًا.','⌂')}
+ </section>${renderFamilies()}`;
+}
+function renderFamilyVisitForm(){let f=(data.families||[]).find(x=>x.id===selected);if(!f)return empty('الأسرة غير موجودة');let members=familyMembers(f);return `<form id="family-visit-form"><p class="subtitle">${e(familyTitle(f))} — سيتم تسجيل زيارة لكل فرد من ${members.length} أفراد بتاريخ واحد.</p><div class="fieldgrid"><div class="field"><label>تاريخ الافتقاد</label><input class="input" type="date" name="date" required max="${today()}" value="${today()}"></div><div class="field"><label>نوع الافتقاد</label><select class="input" name="type"><option>زيارة منزلية</option><option>اتصال تليفوني</option><option>مقابلة بالكنيسة</option><option>متابعة أخرى</option></select></div></div><div class="field"><label>النتيجة</label><select class="input" name="result"><option>تم التواصل</option><option>لم يتم الرد</option><option>يحتاج إعادة متابعة</option></select></div><div class="field"><label>المتابعة القادمة</label><select class="input" name="follow"><option value="auto">بعد ${data.settings.visitDays} يوم</option><option value="7">بعد أسبوع</option><option value="30">بعد شهر</option><option value="none">بدون متابعة</option><option value="specific">تاريخ محدد</option></select></div><div class="field"><label>تاريخ متابعة خاص (عند الاختيار)</label><input class="input" type="date" name="nextDate" min="${today()}"></div><div class="field"><label>ملاحظة عامة (اختياري)</label><textarea class="input" name="note" maxlength="800" rows="2"></textarea></div><button class="btn block" type="submit">حفظ الافتقاد لكل أفراد الأسرة</button></form>`}
+function registerVisitGroup(persons,visitInfo){
+ const changes=[];const groupVisitId=persons.length>1?uid():null;
+ for(const p of persons){
+  // Prevent duplicate one-tap household/individual home visits for the same day.
+  if((p.visits||[]).some(v=>v.date===visitInfo.date&&v.type===visitInfo.type&&v.result===visitInfo.result))continue;
+  const next=addVisit(p,{...visitInfo,groupVisitId},data.settings);
+  const newEntry=next.visits.find(v=>!(p.visits||[]).some(x=>x.id===v.id));
+  if(newEntry){changes.push({personId:p.id,entryId:newEntry.id,previousFollowupDue:p.followupDue??null});replaceP(next)}
+ }
+ return changes;
+}
+async function quickVisitToday(id){let p=findP(id);if(!p)throw Error('الشخص غير موجود');let changes=registerVisitGroup([p],{date:today(),type:'زيارة منزلية',result:'تم التواصل',nextDue:'auto'});if(!changes.length)return toast('تم تسجيل افتقاد اليوم بالفعل');lastUndo={kind:'visit',changes};justVisitedIds=[id];let oldScroll=window.scrollY;render();window.scrollTo(0,oldScroll);await save();toast('تم الافتقاد اليوم: '+p.name,true)}
+async function quickFamilyVisitToday(id){let f=(data.families||[]).find(x=>x.id===id);if(!f)throw Error('الأسرة غير موجودة');let persons=familyMembers(f);if(!persons.length)throw Error('الأسرة بدون أفراد');let changes=registerVisitGroup(persons,{date:today(),type:'زيارة منزلية',result:'تم التواصل',nextDue:'auto'});if(!changes.length)return toast('تم تسجيل افتقاد جميع أفراد الأسرة اليوم بالفعل');lastUndo={kind:'visit',changes};justVisitedIds=changes.map(x=>x.personId);let oldScroll=window.scrollY;render();window.scrollTo(0,oldScroll);await save();toast(`تم افتقاد ${changes.length} فرد من ${familyTitle(f)}`,true)}
+
+function replaceP(next){let ix=data.people.findIndex(x=>x.id===next.id);if(ix<0)throw Error('الشخص غير موجود');data.people[ix]=next;peopleIdIndex.set(next.id,next)}
+function setPage(p){page=p==='confessions'?'people':p;search='';peopleLimit=LIST_BATCH;visitLimit=LIST_BATCH;pickerLimit=PICKER_BATCH;familyLimit=FAMILY_BATCH;justCompletedId=null;justVisitedIds=[];if(page!=='visits'){familySelectMode=false;familySelection=[];familyEditingId=null;familySearch=''}render();window.scrollTo(0,0)}
+function closeModal(){modal='';selected=null;imported=null;mapping=null;pendingImportFile=null;replaceImportNames=false;render()}
+function pickPerson(id){selected=id;modal='detail';render()}
+function setModal(name,id=null){modal=name;selected=id;render()}
+
+// ------------------------------------------------------
+// Planner v1.8: dated appointments and weekly repeating duties
+// ------------------------------------------------------
+const WEEKDAYS=['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'];
+let planDay=today(),planMode='day',scheduleDraft=null,chosenTarget=null,targetQuery='',editingOccurrence=null;
+function ensurePlanningSchema(){
+ if(!data)return;
+ if(!Array.isArray(data.appointments))data.appointments=[];
+ if(!Array.isArray(data.taskRules))data.taskRules=[];
+ if(!Array.isArray(data.taskExceptions))data.taskExceptions=[];
+}
+function plusMonths(date,months){const d=parseDate(date);if(!d)return '';const original=d.getDate();d.setDate(1);d.setMonth(d.getMonth()+months);d.setDate(Math.min(original,new Date(d.getFullYear(),d.getMonth()+1,0).getDate()));return today(d)}
+function timeMinutes(t){if(!/^\d{2}:\d{2}$/.test(t||''))return NaN;const [h,m]=t.split(':').map(Number);return h>=0&&h<24&&m>=0&&m<60?h*60+m:NaN}
+function validHours(start,end){return Number.isFinite(timeMinutes(start))&&Number.isFinite(timeMinutes(end))&&timeMinutes(start)<timeMinutes(end)}
+function itemLabel(ev){if(ev.kind==='confession')return 'موعد اعتراف · '+(findP(ev.personId)?.name||ev.title||'شخص محذوف');if(ev.kind==='visit')return 'موعد افتقاد · '+(findP(ev.personId)?.name||ev.title||'شخص محذوف');if(ev.kind==='family-visit')return 'افتقاد أسرة · '+(data.families.find(f=>f.id===ev.familyId)?familyTitle(data.families.find(f=>f.id===ev.familyId)):(ev.title||'أسرة غير موجودة'));return ev.title||'مهمة';}
+function spanEvents(from,to){ensurePlanningSchema();const arr=[];if(!parseDate(from)||!parseDate(to)||from>to)return arr;
+ for(const a0 of data.appointments){if(a0.date>=from&&a0.date<=to&&a0.status!=='cancelled')arr.push({...a0,instanceKey:a0.id,recurring:false});}
+ for(const r of data.taskRules){if(!parseDate(r.startDate)||!parseDate(r.endDate)||r.endDate<from||r.startDate>to)continue;
+  let cur=r.startDate>from?r.startDate:from,last=r.endDate<to?r.endDate:to;let nd=daysBetween(cur,last);
+  for(let n=0;n<=nd&&n<380;n++){const date=addDays(cur,n);if(!(r.days||[]).includes(parseDate(date).getDay()))continue;
+   const override=data.taskExceptions.find(x=>x.ruleId===r.id&&x.date===date);if(override?.cancelled)continue;
+   arr.push({id:r.id,ruleId:r.id,date,kind:r.kind||'task',title:override?.title??r.title,start:override?.start??r.start,end:override?.end??r.end,note:override?.note??r.note,remindMinutes:override?.remindMinutes??r.remindMinutes,status:'planned',recurring:true,instanceKey:r.id+'@'+date});
+  }
+ }
+ return arr.sort((a,b)=>a.date.localeCompare(b.date)||a.start.localeCompare(b.start)||itemLabel(a).localeCompare(itemLabel(b),'ar'));
+}
+function overlapsFor(date,start,end,skipKey=''){if(!validHours(start,end))return [];return spanEvents(date,date).filter(x=>x.instanceKey!==skipKey&&start<x.end&&end>x.start);}
+function timeStr(t){const [h,m]=(t||'00:00').split(':');return h+':'+m}
+function calendarLabel(date){const d=parseDate(date);return d?WEEKDAYS[d.getDay()]+' '+shortDate(date):shortDate(date)}
+function inAppDue(ev){const now=new Date(),d=parseDate(ev.date);if(!d)return false;const [hh,mm]=ev.start.split(':').map(Number);d.setHours(hh,mm,0,0);const delta=(d.getTime()-now.getTime())/60000;return delta>=0&&delta<=(Number(ev.remindMinutes)||0)&&delta>=-1;}
+function eventBlock(ev,showDay=false){const cl=overlapsFor(ev.date,ev.start,ev.end,ev.instanceKey),planned=ev.status==='planned',canDone=!ev.recurring&&planned&&ev.date<=today();const label=itemLabel(ev);
+ const actions=ev.recurring?`${button('تعديل اليوم فقط','edit-occurrence','btn small outline',`data-id="${a(ev.ruleId)}" data-date="${a(ev.date)}"`)}${button('تعديل التكرار','edit-rule','btn small secondary',`data-id="${a(ev.ruleId)}"`)}`:
+ `${planned?button('تعديل','edit-appointment','btn small outline',`data-id="${a(ev.id)}"`):''}${canDone?button('✓ تم','finish-appointment','btn small secondary',`data-id="${a(ev.id)}"`):''}${planned?button('إلغاء الموعد','cancel-appointment','btn small outline',`data-id="${a(ev.id)}"`):''}`;
+ return `<div class="event-item ${cl.length?'conflict':''}"><div class="event-top"><div class="event-time">${showDay?`<div>${e(calendarLabel(ev.date))}</div>`:''}<div>${e(timeStr(ev.start))} – ${e(timeStr(ev.end))}</div></div><div class="event-desc"><b>${e(label)}${ev.recurring?' ↻':''}</b><small>${ev.note?e(ev.note)+' · ':''}${ev.recurring?'مهمة متكررة':ev.status==='done'?'تم التنفيذ':'موعد محدد'}</small>${cl.length?`<div class="conflict-warning">⚠ تعارض مع ${e(cl.slice(0,3).map(itemLabel).join('، '))}</div>`:''}${inAppDue(ev)?'<span class="tag due">موعد قريب الآن</span>':''}</div></div><div class="event-actions">${actions}</div></div>`}
+function appointmentTargetOptions(term=targetQuery){const kind=scheduleDraft?.kind;const list=kind==='family-visit'?data.families:data.people;if(!list)return '';const t=normalizedTerm(term);const matched=list.filter(x=>kind==='family-visit'?familySearchMatches(x,t):personSearch(x,t));return `<div class="help">${matched.length} نتيجة · اختر الاسم من النتائج</div>`+matched.slice(0,24).map(x=>`<button type="button" class="target-option" data-action="pick-schedule-target" data-id="${a(x.id)}">${e(kind==='family-visit'?familyTitle(x):x.name)}${kind==='family-visit'?' · '+(x.memberIds||[]).length+' أفراد':''}</button>`).join('')+(matched.length>24?'<div class="help">اكتب جزءًا أطول من الاسم لتضييق النتائج</div>':'');}
+function targetName(kind,id){if(kind==='family-visit'){const f=data.families.find(x=>x.id===id);return f?familyTitle(f):''}return findP(id)?.name||''}
+function startAppointment(kind,id='',date=''){scheduleDraft={kind,editId:null,date:date||planDay||today()};chosenTarget=id||null;targetQuery='';modal='appointment';render();showConflictPreview()}
+function editAppointment(id){const x=data.appointments.find(ev=>ev.id===id);if(!x)return; scheduleDraft={kind:x.kind,editId:id,date:x.date};chosenTarget=x.personId||x.familyId||null;targetQuery='';modal='appointment';render()}
+function scheduleForm(){const dr=scheduleDraft||{kind:'task',date:today()};const old=dr.editId?data.appointments.find(x=>x.id===dr.editId):null;const kind=dr.kind;const targetRequired=kind!=='task';const curTitle=old?.title||'';const target=targetName(kind,chosenTarget);
+ return `<form id="appointment-form"><p class="subtitle">${e(({confession:'تحديد ميعاد اعتراف',visit:'تحديد ميعاد افتقاد', 'family-visit':'تحديد ميعاد افتقاد أسرة',task:'إضافة اجتماع أو صلاة أو ندوة أو مهمة'})[kind]||'إضافة موعد')}</p>
+ ${targetRequired?`<div class="field"><label>${kind==='family-visit'?'الأسرة':'الشخص'} *</label>${target?`<div class="target-selected">✓ ${e(target)} ${button('تغيير','clear-schedule-target','btn small outline')}</div>`:`<input class="input" id="schedule-target-query" type="search" autocomplete="off" placeholder="ابحث بالاسم أو الموبايل..." value="${a(targetQuery)}"><div id="schedule-target-list" class="target-search-results">${appointmentTargetOptions()}</div>`}</div>`:`<div class="field"><label>عنوان المهمة *</label><input class="input" name="title" required maxlength="160" placeholder="مثلاً: اجتماع خدمة، صلاة عشية، ندوة" value="${a(curTitle)}"></div>`}
+ <div class="fieldgrid"><div class="field"><label>التاريخ</label><input class="input" id="schedule-date" name="date" type="date" required value="${a(old?.date||dr.date||today())}"></div><div class="field"><label>موعد التذكير</label><select class="input" name="remindMinutes">${[[0,'في نفس الموعد'],[15,'قبل 15 دقيقة'],[30,'قبل 30 دقيقة'],[60,'قبل ساعة'],[1440,'قبل يوم']].map(([n,l])=>`<option value="${n}" ${Number(old?.remindMinutes??30)===n?'selected':''}>${l}</option>`).join('')}</select></div></div>
+ <div class="fieldgrid"><div class="field"><label>من الساعة</label><input class="input" id="schedule-start" type="time" name="start" required value="${a(old?.start||'17:00')}"></div><div class="field"><label>إلى الساعة</label><input class="input" id="schedule-end" type="time" name="end" required value="${a(old?.end||'18:00')}"></div></div>
+ <div class="field"><label>ملاحظة (اختياري)</label><textarea class="input" rows="2" name="note" maxlength="600" placeholder="مثلاً: التواصل قبل الزيارة أو معمودية في نفس اليوم">${e(old?.note||'')}</textarea></div><div id="appointment-conflict-preview"></div><button type="submit" class="btn block">✓ ${old?'حفظ تعديل الموعد':'حفظ الموعد'}</button>
+ <p class="help">التعارض هو تداخل وقت حدثين في نفس اليوم؛ هننبهك قبل الحفظ، وممكن تسمح بالتعارض لو قصدك.</p></form>`;
+}
+function recurrenceForm(){const old=scheduleDraft?.editId?data.taskRules.find(x=>x.id===scheduleDraft.editId):null,chosen=old?.days||[0,3,5];return `<form id="rule-form"><p class="subtitle">حدّد أيام الأسبوع ووقت المهمة ومدة استمرارها. أي تعديل ليوم معيّن بعد كده مش هيغيّر بقية الأيام.</p><div class="field"><label>اسم المهمة</label><input class="input" required name="title" maxlength="160" value="${a(old?.title||'قداس')}" placeholder="قداس / عشية / اجتماع / صلاة / ندوة"></div><label class="help">تتكرر في الأيام التالية</label><div class="weekday-pick">${WEEKDAYS.map((n,i)=>`<label><input type="checkbox" name="weekday" value="${i}" ${chosen.includes(i)?'checked':''}>${n}</label>`).join('')}</div><div class="fieldgrid"><div class="field"><label>بداية التكرار</label><input class="input" type="date" required name="startDate" value="${a(old?.startDate||today())}"></div><div class="field"><label>عدد الشهور</label><input class="input" required type="number" min="1" max="36" name="months" value="${old?.months||3}"></div></div><div class="fieldgrid"><div class="field"><label>من الساعة</label><input class="input" type="time" required name="start" value="${a(old?.start||'07:00')}"></div><div class="field"><label>إلى الساعة</label><input class="input" type="time" required name="end" value="${a(old?.end||'10:00')}"></div></div><div class="field"><label>ملاحظة ثابتة (اختياري)</label><textarea class="input" name="note" maxlength="600" rows="2">${e(old?.note||'')}</textarea></div><div id="rule-conflict-preview"></div><button type="submit" class="btn block">✓ ${old?'حفظ تعديل كل التكرار':'إضافة المهمة المتكررة'}</button><p class="help">مثال: قداس الأحد والأربعاء والجمعة من 7 إلى 10 صباحًا لمدة 3 شهور. التعديل لليوم الواحد يتم من الموعد نفسه.</p></form>`}
+function exceptionForm(){const dr=editingOccurrence;const rule=data.taskRules.find(x=>x.id===dr?.ruleId);if(!rule)return empty('المهمة غير موجودة');const x=data.taskExceptions.find(x=>x.ruleId===rule.id&&x.date===dr.date);return `<form id="exception-form"><p class="subtitle">تعديل ${e(calendarLabel(dr.date))} فقط من «${e(rule.title)}». بقية أيام الأسبوع كما هي.</p><div class="field"><label>العنوان في اليوم ده</label><input class="input" name="title" maxlength="160" value="${a(x?.title??rule.title)}" required></div><div class="fieldgrid"><div class="field"><label>من</label><input id="exception-start" class="input" type="time" name="start" required value="${a(x?.start??rule.start)}"></div><div class="field"><label>إلى</label><input id="exception-end" class="input" type="time" name="end" required value="${a(x?.end??rule.end)}"></div></div><div class="field"><label>ملاحظة خاصة باليوم (مثلاً معمودية)</label><textarea class="input" name="note" maxlength="600" rows="2">${e(x?.note??rule.note??'')}</textarea></div><div id="exception-conflict-preview"></div><button class="btn block" type="submit">✓ حفظ تعديل اليوم فقط</button><div class="actions-inline" style="margin-top:9px">${button('إلغاء هذه المرة فقط','cancel-occurrence','btn outline')}${button('عودة للموعد الأصلي','reset-occurrence','btn secondary')}</div></form>`}
+function showConflictPreview(){const form=document.getElementById('appointment-form')||document.getElementById('exception-form');if(!form)return;const fd=new FormData(form),date=form.id==='exception-form'?editingOccurrence.date:String(fd.get('date')||''),start=String(fd.get('start')||''),end=String(fd.get('end')||'');const key=form.id==='exception-form'?editingOccurrence.ruleId+'@'+date:scheduleDraft?.editId||'';const el=document.getElementById(form.id==='exception-form'?'exception-conflict-preview':'appointment-conflict-preview');if(!el)return;const clash=overlapsFor(date,start,end,key);el.innerHTML=!validHours(start,end)?'<p class="danger-note">لازم وقت النهاية يكون بعد البداية وفي نفس اليوم.</p>':clash.length?`<div class="conflict-warning">⚠ يوجد تعارض مع: ${clash.slice(0,5).map(x=>e(itemLabel(x)+' ('+x.start+'–'+x.end+')')).join(' · ')}</div>`:'<p class="info-note">✓ لا يوجد تعارض في الوقت المحدد</p>'}
+function scheduleQuickButtons(){return `<div class="schedule-grid">${button('＋ موعد اعتراف','new-schedule-confession','btn')}${button('＋ موعد افتقاد','new-schedule-visit','btn secondary')}${button('⌂ موعد افتقاد أسرة','new-schedule-family','btn secondary')}${button('＋ مهمة أو اجتماع','new-schedule-task','btn outline')}${button('↻ مهمة أسبوعية','new-recurring','btn outline')}${button('☷ التقويم القبطي','go-coptic','btn outline')}</div>`}
+
+function isPriestTask(ev){return ev.recurring||ev.kind==='task'}
+function taskRuleCards(limit=Infinity){const rules=data.taskRules.slice(0,limit);return rules.length?rules.map(r=>`<div class="report-row"><div><b>${e(r.title)}</b><div class="help">${(r.days||[]).map(d=>WEEKDAYS[d]).join('، ')} · ${e(r.start)}–${e(r.end)} · حتى ${faDate(r.endDate)}</div></div><div>${button('تعديل','edit-rule','btn small outline',`data-id="${a(r.id)}"`)} ${button('حذف','delete-rule','btn small outline',`data-id="${a(r.id)}"`)}</div></div>`).join(''):empty('لم تُنشأ مهام أسبوعية ثابتة بعد')}
+function renderAgenda(){
+ ensurePlanningSchema();const date=parseDate(planDay)?planDay:today(),mode=planMode;
+ const start=date,end=mode==='week'?addDays(date,6):date;
+ const all=spanEvents(start,end),tasks=all.filter(isPriestTask),appointments=all.filter(x=>!isPriestTask(x));
+ const strip=mode==='day'?Array.from({length:7},(_,i)=>addDays(date,i)):[];
+ const datesBar=`<div class="fieldgrid"><div class="field"><label>اليوم</label><input class="input" type="date" id="planner-day" value="${date}"></div><div class="field"><label>طريقة العرض</label><select class="input" id="planner-mode"><option value="day" ${mode==='day'?'selected':''}>يوم واحد</option><option value="week" ${mode==='week'?'selected':''}>7 أيام</option></select></div></div><div class="agenda-toolbar">${button('← اليوم السابق','plan-prev','btn small outline')}${button('اليوم','plan-today','btn small secondary')}${button('اليوم التالي →','plan-next','btn small outline')}</div>${mode==='day'?`<div class="day-strip">${strip.map(d=>`<button class="${d===date?'selected':''}" data-action="pick-plan-day" data-date="${d}">${WEEKDAYS[parseDate(d).getDay()].slice(0,3)}<br>${e(shortDate(d))}</button>`).join('')}</div>`:''}`;
+ return `<section class="main-card"><h1 class="page-title">المواعيد ومهام الكاهن</h1>
+ ${datesBar}<div class="section-header"><h2 class="section-title" style="margin:0">١. المهام الثابتة (${data.taskRules.length})</h2>${button('＋ مهمة أسبوعية','new-recurring','btn small secondary')}</div>
+ ${taskRuleCards()}</section>
+ <section class="card"><div class="section-header"><h2 class="section-title" style="margin:0">٢. المواعيد (${appointments.length})</h2></div>${scheduleQuickButtons()}
+ ${appointments.length?appointments.map(x=>eventBlock(x,mode==='week')).join(''):empty('مفيش مواعيد للأشخاص أو الأسر في الفترة المحددة','☷')}</section>
+ <section class="card"><div class="section-header"><h2 class="section-title" style="margin:0">٣. المناسبات والتقويم القبطي</h2>${button('عرض التقويم','go-coptic','btn small outline')}</div>${renderOccasionCompact(4)}</section>
+ <section class="card"><div class="section-header"><h2 class="section-title" style="margin:0">٤. المهام اليومية والمتكررة (${tasks.length})</h2>${button('＋ مهمة ليوم واحد','new-schedule-task','btn small outline')}</div>
+ ${tasks.length?tasks.map(x=>eventBlock(x,mode==='week')).join(''):empty('مفيش مهام في اليوم أو الفترة المختارة','✓')}</section>`;
+}
+function renderHomePlanner(){
+ const upcoming=spanEvents(today(),addDays(today(),7)).filter(x=>x.status!=='done');
+ const tasks=upcoming.filter(isPriestTask).slice(0,5),appointments=upcoming.filter(x=>!isPriestTask(x)).slice(0,5);
+ return `<section class="card dashboard-schedule-card"><div class="section-header"><h2 class="section-title">١. المهام الثابتة (${data.taskRules.length})</h2>${button('عرض المهام','go-schedule','btn small outline')}</div><div class="actions-inline">${button('＋ مهمة أسبوعية','new-recurring','btn secondary')}</div>${taskRuleCards(5)}${data.taskRules.length>5?`<div class="actions-inline" style="margin-top:9px">${button('عرض بقية المهام الثابتة','go-schedule','btn small outline')}</div>`:''}</section>
+ <section class="card dashboard-schedule-card"><div class="section-header"><h2 class="section-title">٢. المواعيد القادمة</h2>${button('عرض الجدول','go-schedule','btn small outline')}</div>${scheduleQuickButtons()}${appointments.length?appointments.map(ev=>eventBlock(ev,true)).join(''):empty('مفيش مواعيد للأشخاص أو الأسر في الأسبوع القادم','☷')}</section>
+ <section class="card"><div class="section-header"><h2 class="section-title">٣. المناسبات القريبة والتقويم القبطي</h2>${button('عرض التقويم','go-coptic','btn small outline')}</div>${renderOccasionCompact(3)}</section>
+ <section class="card dashboard-schedule-card"><div class="section-header"><h2 class="section-title">٤. المهام اليومية والمتكررة (${tasks.length})</h2>${button('عرض المهام','go-schedule','btn small outline')}</div><div class="actions-inline">${button('＋ مهمة ليوم واحد','new-schedule-task','btn outline')}</div>${tasks.length?tasks.map(ev=>eventBlock(ev,true)).join(''):empty('مفيش مهام في الأسبوع القادم','✓')}</section>`;
+}
+// Coptic date calculated locally for Gregorian 1900–2099; daily liturgical readings are linked to reviewed sources.
+const COPTIC_MONTHS=['توت','بابه','هاتور','كيهك','طوبه','أمشير','برمهات','برموده','بشنس','بؤونه','أبيب','مسرى','النسيء'];
+function copticNewYear(y){return String(y)+'-09-'+(y%4===3?'12':'11')}
+function copticDate(s){const d=parseDate(s);if(!d)return null;const y=d.getFullYear();if(y<1900||y>2099)return null;const ny=copticNewYear(y),start=s>=ny?ny:copticNewYear(y-1),age=(s>=ny?y:y-1)-283;const dist=daysBetween(start,s);const m=Math.floor(dist/30),day=dist%30+1;return {year:age,month:m+1,day,monthName:COPTIC_MONTHS[m]||'غير معروف'};}
+function copticFixedDate(copticYear,month,day){const y=copticYear+283;return addDays(copticNewYear(y),(month-1)*30+day-1)}
+function orthodoxEaster(y){const a=y%4,b=y%7,c=y%19,d=(19*c+15)%30,e=(2*a+4*b-d+34)%7;const month=Math.floor((d+e+114)/31),day=(d+e+114)%31+1;const dt=new Date(Date.UTC(y,month-1,day+13,12));return dt.toISOString().slice(0,10)}
+function localOccasionsForYear(y){const eas=orthodoxEaster(y);const out=[
+ [addDays(eas,-69),'صوم يونان','fast',addDays(eas,-67)],
+ [addDays(eas,-55),'بداية الصوم الكبير','fast',addDays(eas,-1)],
+ [addDays(eas,-7),'أحد الشعانين','feast'],
+ [addDays(eas,-6),'بداية أسبوع الآلام','fast',addDays(eas,-1)],
+ [addDays(eas,-3),'خميس العهد','feast'],
+ [addDays(eas,-2),'الجمعة العظيمة','fast'],
+ [eas,'عيد القيامة المجيد','feast'],
+ [addDays(eas,39),'عيد الصعود','feast'],
+ [addDays(eas,49),'عيد العنصرة','feast'],
+ [addDays(eas,50),'بداية صوم الرسل','fast'],
+ ];for(const cy of [y-284,y-283,y-282]){
+  for(const [m,d,title,kind,end] of [[4,29,'عيد الميلاد المجيد','feast'],[5,11,'عيد الغطاس','feast'],[1,1,'عيد النيروز','feast'],[1,17,'عيد الصليب','feast'],[12,5,'عيد الرسل','feast'],[12,1,'بداية صوم العذراء','fast',15],[12,16,'عيد صعود جسد السيدة العذراء','feast'],[3,16,'بداية صوم الميلاد','fast']]){
+   const date=copticFixedDate(cy,m,d);if(date.slice(0,4)==String(y))out.push([date,title,kind,typeof end==='number'?copticFixedDate(cy,m,end):undefined]);
+  }
+ }
+ return out.map(([date,title,kind,ends])=>({date,title,kind,ends})).filter(x=>x.date.slice(0,4)==String(y)).sort((a,b)=>a.date.localeCompare(b.date));}
+function upcomingOccasions(from=today(),days=180){const y=Number(from.slice(0,4));return [y-1,y,y+1].flatMap(localOccasionsForYear).filter(x=>x.date>=from&&daysBetween(from,x.date)<=days).sort((a,b)=>a.date.localeCompare(b.date));}
+function renderOccasionCompact(limit=5){const list=upcomingOccasions(today(),200).slice(0,limit);return list.length?list.map(x=>`<div class="occasion-line"><div><b>${e(x.title)}</b><small>${faDate(x.date)}${x.ends?' — إلى '+faDate(x.ends):''}</small></div><span class="tag ${daysBetween(today(),x.date)<=7?'due':''}">${daysBetween(today(),x.date)===0?'اليوم':'بعد '+daysBetween(today(),x.date)+' يوم'}</span></div>`).join(''):empty('لا توجد مناسبات قريبة')}
+function renderCoptic(){const d=copticDate(planDay),t=copticDate(today()),items=upcomingOccasions(planDay,120);const occasions=localOccasionsForYear(Number(planDay.slice(0,4))).filter(x=>x.date<=planDay&&(!x.ends?x.date===planDay:x.ends>=planDay));return `<section class="main-card"><div class="section-header"><div><h1 class="page-title">التقويم القبطي والمناسبات</h1><p class="subtitle">مواعيد الأعياد والأصوام الأساسية تُحسب على الجهاز دون إنترنت.</p></div>${button('المواعيد','go-schedule','btn small secondary')}</div><div class="coptic-summary"><small>تاريخ اليوم القبطي</small><strong>${t?`${t.day} ${t.monthName} ${t.year} ش`:''}</strong><span class="help">${faDate(today())}</span></div><div class="field"><label>اعرض تاريخًا آخر</label><input class="input" type="date" id="coptic-day" value="${a(planDay)}"></div><div class="plan-meta">${d?`<b>${e(calendarLabel(planDay))} يوافق ${d.day} ${d.monthName} ${d.year} ش</b>`:'التاريخ خارج المدى المدعوم 1900–2099.'}${occasions.length?`<div>خلال: ${occasions.map(x=>e(x.title)).join(' · ')}</div>`:''}</div><h2 class="section-title">المناسبات القادمة</h2>${items.length?items.slice(0,18).map(x=>`<div class="occasion-line"><div><b>${e(x.title)}</b><small>${faDate(x.date)}${x.ends?' — حتى '+faDate(x.ends):''}</small></div><span class="tag">${daysBetween(planDay,x.date)} يوم</span></div>`).join(''):empty('لا توجد مناسبات ضمن المدة المحددة')}<p class="help">المواعيد الطقسية قد تختلف في بعض التفاصيل المحلية أو في طريقة بدء الصوم. يُفضّل مراجعة تقويم الكنيسة عند ترتيب الخدمة.</p></section>`}
+
+function render(){if(!data){renderAuth();return}ensurePlanningSchema();root.innerHTML=`<div class="app-layout"><header class="topbar"><div class="topbar-main"><div class="logo-group"><div class="logo-mark">✝</div><div><div class="brand">الراعي</div><div class="brand-sub">المتابعة الرعوية</div></div></div><div class="top-tools"><button aria-label="إضافة شخص" class="top-tool" data-action="add-person">＋</button></div></div></header><main class="page">${renderPage()}</main><nav class="bottom-nav" aria-label="القائمة الرئيسية">${[{k:'home',i:'⌂',t:'الرئيسية'},{k:'people',i:'♧',t:'الأشخاص والاعتراف'},{k:'visits',i:'▦',t:'الافتقاد'},{k:'schedule',i:'▤',t:'المواعيد'},{k:'settings',i:'⚙',t:'الإعدادات'}].map(n=>`<button class="nav-item ${(page===n.k||(n.k==='visits'&&page==='family-visits'))?'active':''}" data-action="nav" data-page="${n.k}"><span class="nicon">${n.i}</span>${n.t}</button>`).join('')}</nav>${modal?renderModal():''}</div>`;}
+function renderAuth(){let first=!vault;root.innerHTML=`<div class="screen-login"><div class="login-box"><div class="login-head"><div class="login-emblem">✝</div><h1>الراعي</h1><p>متابعة الافتقاد والاعتراف · بدون إنترنت</p></div><h2 class="page-title">${first?'إعداد التطبيق لأول مرة':'فتح البيانات القديمة'}</h2><p class="subtitle">${first?'اختار كلمة مرور لأول مرة فقط. الجهاز هيفتح التطبيق تلقائيًا بعد كده، وكلمة المرور مهمة لاستعادة النسخة الاحتياطية.':'ادخل كلمة المرور مرة واحدة لتفعيل الفتح التلقائي على الجهاز ده.'}</p><form id="auth-form"><div class="field"><label for="secret">كلمة المرور</label><input id="secret" class="input" name="password" type="password" autocomplete="${first?'new-password':'current-password'}" required minlength="8" placeholder="٨ أحرف أو أكثر"></div>${first?'<div class="field"><label for="secret2">تأكيد كلمة المرور</label><input id="secret2" class="input" name="confirm" type="password" autocomplete="new-password" minlength="8" required placeholder="اكتبها تاني"></div>':''}<button class="btn block" type="submit">${first?'بدء الاستخدام':'فتح وحفظ الدخول على هذا الجهاز'}</button></form><div class="warning">${first?'احتفظ بكلمة المرور للنسخ الاحتياطي. لا يتم حفظ كلمة المرور نفسها.':'لو نقلت البيانات لمتصفح تاني هيحتاج كلمة المرور أول مرة.'}</div>${first?'':button('استعادة نسخة احتياطية مشفرة','restore-locked','btn secondary block')}</div></div>`}
+function renderPage(){switch(page){case'home':return renderHome();case'people':case'confessions':return renderPeople();case'visits':return renderVisits();case'family-visits':return renderFamilyVisitsPage();case'schedule':return renderAgenda();case'coptic':return renderCoptic();case'settings':return renderSettings();case'reports':return renderReports();default:return renderHome()}}
+function renderHome(){let s=countSummary(data.people,data.settings),due=sortConfessions(data.people.filter(p=>['overdue','due'].includes(confessionStatus(p,data.settings).kind)),data.settings).slice(0,5),visit=data.people.map(p=>({p,st:visitStatus(p,data.settings)})).filter(x=>['overdue','due'].includes(x.st.kind)).sort((a,b)=>(a.st.remaining??0)-(b.st.remaining??0)).slice(0,4).map(x=>x.p);return `<section class="main-card"><div class="section-header"><div><h1 class="page-title">أهلاً يا أبونا</h1><div class="subtitle">${calendarLabel(today())} · كل المتابعات في مكان واحد</div></div><span class="tag">أوفلاين</span></div><div class="stats"><button class="stat stat-click" data-action="view-people"><div class="st-top">♧</div><div class="num">${s.people}</div><div class="st-label">إجمالي الأشخاص ←</div></button><button class="stat stat-click" data-action="view-conf"><div class="st-top">✓</div><div class="num">${s.confessionDue}</div><div class="st-label">متابعة اعتراف ←</div></button><button class="stat stat-click" data-action="view-visits"><div class="st-top">⌂</div><div class="num">${s.visitDue}</div><div class="st-label">افتقاد مستحق ←</div></button><button class="stat stat-click" data-action="view-visits"><div class="st-top">▦</div><div class="num">${s.visitsThisMonth}</div><div class="st-label">افتقاد هذا الشهر ←</div></button></div></section>${renderHomePlanner()}<div class="section-header"><h2 class="section-title">اعتراف مستحق</h2>${button('عرض كل الأسماء','view-conf','link-like')}</div><div class="list">${due.length?due.map(p=>personRow(p,'confession',true)).join(''):empty('مفيش اعترافات مستحقة حاليًا','✓')}</div><div class="section-header"><h2 class="section-title">الافتقاد المستحق</h2>${button('عرض الكل','view-visits','link-like')}</div><div class="list">${visit.length?visit.map(p=>personRow(p,'visit',true)).join(''):empty('مفيش افتقادات مستحقة حاليًا','⌂')}</div>`}
+function personRow(p,type='people',actions=true){
+ const st=confessionStatus(p,data.settings),vs=visitStatus(p,data.settings),f=familyForPerson(p.id),lastVisit=(p.visits||[]).reduce((latest,v)=>!latest||v.date>latest?v.date:latest,'');
+ const isVisit=type==='visit',summary=st.days===null?'لم يُسجّل اعتراف بعد':`آخر اعتراف: ${faDate(p.lastConfession)} · من ${st.days} يوم`;
+ return `<div class="person-row person-card" data-person-id="${safeId(p)}"><div class="person-avatar">${nameInitial(p)}</div><div class="person-content"><div class="person-top"><div class="person-main" role="button" tabindex="0" data-action="detail" data-id="${safeId(p)}"><strong>${e(p.name||'بدون اسم')}</strong><small>${e([p.area,p.phones?.[0]].filter(Boolean).join(' · ')||'اضغط لعرض الملف')}</small></div>${isVisit?(vs.kind==='unknown'?'':fmtStatus(vs)):fmtStatus(st)}</div>${f?`<div class="person-family">⌂ ${e(familyTitle(f))}${f.headId===p.id?' · رب الأسرة':''}</div>`:''}<div class="person-date">${isVisit?(vs.due?`الافتقاد القادم: ${faDate(vs.due)}`:'لا يوجد تاريخ افتقاد قادم'):summary}</div>${!isVisit&&st.due?`<div class="person-next">موعد الاعتراف القادم: ${faDate(st.due)}</div>`:''}<div class="person-visit-date">آخر افتقاد: ${faDate(lastVisit)}${!lastVisit&&vs.baseline?` · بداية الحساب: ${faDate(vs.baseline)}`:''}</div><div class="person-controls">${!isVisit?`${button('✓ اعترف اليوم','quick-confess','btn small',`data-id="${safeId(p)}"`)}${button('◷ اعتراف سابق','confess-modal','btn small outline',`data-id="${safeId(p)}"`)}${button(p.servant?'✓ خادم':'＋ خادم','toggle-servant-row',`btn small ${p.servant?'secondary':'outline'}`,`data-id="${safeId(p)}"`)}`:''}${button('✓ تم الافتقاد اليوم','quick-visit','btn small secondary',`data-id="${safeId(p)}"`)}${button('تفاصيل افتقاد','new-visit','btn small outline',`data-id="${safeId(p)}"`)}${button('⌚ موعد اعتراف','schedule-confession','btn small outline',`data-id="${safeId(p)}"`)}${button('⌚ موعد افتقاد','schedule-visit','btn small outline',`data-id="${safeId(p)}"`)}${button('ملف الشخص','detail','btn small outline',`data-id="${safeId(p)}"`)}</div></div></div>`;
+}
+function peopleMatches(){const status=p=>confessionStatus(p,data.settings).kind;return data.people.filter(p=>personSearch(p,search)&&(peopleFilter==='all'||(peopleFilter==='servant'&&p.servant)||(peopleFilter==='normal'&&!p.servant)||(peopleFilter==='due'&&(['overdue','due'].includes(status(p))||p.id===justCompletedId))||(peopleFilter==='unknown'&&status(p)==='unknown'))).sort(byName)}
+function visitsMatches(){const list=data.people.filter(p=>personSearch(p,search));if(confFilter!=='visitsdue')return list.sort(byName);return list.filter(p=>['overdue','due'].includes(visitStatus(p,data.settings).kind)||justVisitedIds.includes(p.id)).sort(byName)}
+function resultsChunkHtml(kind){let matches=kind==='people'?peopleMatches():visitsMatches(),limit=kind==='people'?peopleLimit:visitLimit,visible=matches.slice(0,limit);return {rows:visible.length?visible.map(p=>personRow(p,kind==='visits'?'visit':'people')).join(''):empty('مافيش أشخاص مطابقين للبحث','♧'),total:matches.length,shown:visible.length}}
+function listPagingHtml(kind,r){return r.total>r.shown?`<div class="list-more">${button('عرض المزيد من الأشخاص','more-'+kind,'btn secondary')}</div>`:''}
+function listResultsHtml(kind,r){return `<p class="list-summary" id="result-count">عرض ${r.shown} من ${r.total} شخص</p><div class="list" id="person-results">${r.rows}</div><div id="person-paging">${listPagingHtml(kind,r)}</div>`}
+function updatePersonResults(){if(!['people','visits'].includes(page)||familySelectMode)return;const r=resultsChunkHtml(page);const list=document.getElementById('person-results');if(!list)return;list.innerHTML=r.rows;document.getElementById('result-count').textContent=`عرض ${r.shown} من ${r.total} شخص`;document.getElementById('person-paging').innerHTML=listPagingHtml(page,r)}
+function renderPeople(){const r=resultsChunkHtml('people');return `<section class="main-card"><div class="section-header"><div><h1 class="page-title">الأشخاص والاعتراف والافتقاد</h1><p class="subtitle">${data.people.length} شخص · اعتراف وافتقاد بضغطة واحدة، وترتيب أسماء ثابت</p></div>${button('＋ إضافة','add-person','btn small')}</div>${searchbar()}<div class="segmented">${[['all','الكل'],['due','المستحقين'],['servant','الخدام'],['normal','العاديين'],['unknown','بلا تاريخ']].map(([k,v])=>`<button class="pill ${peopleFilter===k?'active':''}" data-action="people-filter" data-filter="${k}">${v}</button>`).join('')}</div><div class="family-actions">${button('⌂ تكوين أسرة من الأسماء','family-start','btn secondary small')}</div><p class="help">جنب كل اسم: «اعترف اليوم» أو «تم الافتقاد اليوم» لحفظ سريع، أو سجّل تاريخًا سابقًا.</p>${listResultsHtml('people',r)}</section>`}
+function searchbar(){return `<label class="searchbar"><span>⌕</span><input aria-label="بحث" id="search" type="search" autocomplete="off" placeholder="ابحث بالاسم أو الرقم أو المنطقة..." value="${a(search)}"></label>`}
+function renderConfessions(){return renderPeople()}
+function renderVisits(){if(familySelectMode)return renderFamilyPicker();const r=resultsChunkHtml('visits');return `<section class="main-card"><h1 class="page-title">افتقاد الأفراد</h1><p class="subtitle">سجل الافتقاد لكل شخص، أو افتح صفحة الأسر لتسجيل زيارة مشتركة بتاريخ سابق.</p>
+ <div class="visit-nav-options">${button('⌂ افتقاد الأسر والتواريخ','go-family-visits','btn')}${button('＋ تكوين أسرة','family-start','btn secondary')}</div>
+ ${searchbar()}<div class="segmented"><button class="pill ${confFilter==='visitsdue'?'active':''}" data-action="visits-filter" data-filter="visitsdue">المستحقين</button><button class="pill ${confFilter!=='visitsdue'?'active':''}" data-action="visits-filter" data-filter="all">الكل</button></div>
+ ${listResultsHtml('visits',r)}</section>`}
+
+function renderSettings(){let s=data.settings;return `<section class="main-card"><h1 class="page-title">الإعدادات</h1><p class="subtitle">كل إعدادات المتابعة محفوظة على الجهاز فقط</p><h2 class="section-title">دورية الاعتراف</h2><form id="settings-form"><div class="fieldgrid"><div class="field"><label for="servantDays">الخدام — كل كام يوم؟</label><input class="input" id="servantDays" type="number" name="servantDays" min="1" max="3650" required value="${s.servantDays}"></div><div class="field"><label for="ordinaryDays">العاديين — كل كام يوم؟</label><input class="input" id="ordinaryDays" type="number" name="ordinaryDays" min="1" max="3650" required value="${s.ordinaryDays}"></div></div><div class="field"><label for="visitDays">الفترة الافتراضية للافتقاد (بالأيام)</label><input class="input" id="visitDays" type="number" name="visitDays" min="1" max="3650" required value="${s.visitDays}"></div>
+<h2 class="section-title">بدء حساب الافتقاد لمن ليس لديه تاريخ سابق</h2>
+<div class="switch-line"><div class="txt"><b>ابدأ عدّ الافتقاد من أول استخدام للتطبيق</b><small>للشخص الذي لا يوجد له افتقاد مسجّل أو موعد متابعة محدد فقط. أي افتقاد سابق أو موعد مخصص له الأولوية.</small></div><input class="switch" type="checkbox" id="visitBaselineEnabled" name="visitBaselineEnabled" ${s.visitBaselineEnabled?'checked':''}></div>
+<div class="field"><label for="visitBaselineDate">تاريخ بداية العدّ</label><input class="input" id="visitBaselineDate" type="date" name="visitBaselineDate" max="${today()}" value="${a(s.visitBaselineDate||data.installedOn||today())}"></div>
+<p class="help">لو التطبيق جديد، التاريخ الافتراضي هو أول يوم استخدام. للنسخ القديمة التي لم تحفظ تاريخ التثبيت، البداية المقترحة هي يوم تفعيل الخيار؛ ويمكن اختيار تاريخ أقدم يدويًا. الاستحقاق يبدأ بعد عدد الأيام المحدد فوق، ويظهر في القائمة والرئيسية عند فتح التطبيق.</p>
+<h2 class="section-title">تنبيهات الآيفون</h2><div class="switch-line"><div class="txt"><b>تنبيهات المتابعة</b></div><input class="switch" id="notifyEnabled" type="checkbox" name="notifyEnabled" ${s.notifyEnabled?'checked':''} ${nativeAvailable()?'':'disabled'}></div><div class="fieldgrid"><div class="field"><label>ساعة الملخص اليومي</label><input class="input" type="time" name="notifyTime" value="${String(s.notifyHour).padStart(2,'0')}:${String(s.notifyMinute).padStart(2,'0')}"></div><div class="field"><label>تفاصيل شاشة القفل</label><select class="input" name="showNamesOnLock"><option value="false" ${!s.showNamesOnLock?'selected':''}>إشعارات عامة — أكثر خصوصية</option><option value="true" ${s.showNamesOnLock?'selected':''}>عرض اسم الشخص</option></select></div></div><button type="submit" class="btn block">حفظ الإعدادات وتحديث المتابعات</button></form></section><section class="card"><h2 class="section-title">البيانات والحماية</h2><div class="actions-inline">${button('استيراد Excel / CSV / VCF','import','btn secondary')}${button('نسخة احتياطية مشفرة','backup','btn secondary')}</div><div style="height:9px"></div><div class="actions-inline">${button('استعادة نسخة مشفرة','restore','btn outline')}${button('تغيير كلمة المرور','change-password','btn outline')}</div><div style="height:9px"></div><div class="actions-inline">${button('التقارير','reports','btn outline')}</div><p class="help">الفتح التلقائي مفعّل على الجهاز بعد أول دخول. البيانات مشفرة ولا نخزن محتوى الاعتراف. احتفظ بكلمة مرور النسخ الاحتياطي ونسخة خارج الجهاز.</p></section><section class="card"><div class="reset-section"><h2 class="section-title">مسح البيانات وإعادة الضبط</h2><p class="danger-explain">اختار نوع المسح بعناية. العمليات دي نهائية، ويفضّل تعمل نسخة احتياطية الأول.</p><div class="reset-choices">${button('مسح كل الأسماء والسجلات','reset-people','btn outline')}${button('إعادة ضبط الإعدادات فقط','reset-settings','btn outline')}</div><div style="height:9px"></div>${button('مسح كل بيانات التطبيق والبدء من جديد','reset-all','btn danger block')}</div></section>`}
+function renderReports(){let s=countSummary(data.people,data.settings),totalConf=data.people.reduce((n,p)=>n+(p.confessions||[]).length,0),calls=data.people.reduce((n,p)=>n+p.visits.filter(v=>v.type==='اتصال تليفوني').length,0);return `<section class="main-card"><h1 class="page-title">تقارير الخدمة</h1><p class="subtitle">ملخص محلي بدون إرسال بيانات لأي جهة</p>${[['إجمالي الأشخاص',s.people],['الخدام',s.servants],['الاعترافات المسجلة',totalConf],['المستحقون للاعتراف',s.confessionDue],['افتقادات مستحقة',s.visitDue],['افتقاد خلال الشهر',s.visitsThisMonth],['اتصالات مسجلة',calls]].map(([l,n])=>`<div class="report-row"><span>${e(l)}</span><b>${n}</b></div>`).join('')}${button('رجوع للإعدادات','back-settings','btn secondary block')}</section>`}
+function renderModal(){let content='';switch(modal){case'detail':content=renderDetail();break;case'person':content=renderPersonForm();break;case'confess':content=renderConfessForm();break;case'visit':content=renderVisitForm();break;case'family':content=renderFamilyForm();break;case'family-visit':content=renderFamilyVisitForm();break;case'appointment':content=scheduleForm();break;case'weekly-rule':content=recurrenceForm();break;case'occurrence':content=exceptionForm();break;case'import':content=renderImporter();break;case'backup':content=renderBackup();break;case'restore':content=renderRestore();break;case'change-password':content=renderChangePassword();break;case'confirm-delete':content=renderConfirmDelete();break;case'reset-people':case'reset-settings':case'reset-all':content=renderResetForm();break;default:content=''}return `<div class="modal-layer" id="modal-layer"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="modal-top"><h2 id="modal-title">${e(({detail:'ملف الشخص',person:selected?'تعديل بيانات':'إضافة شخص',confess:'تسجيل الاعتراف',visit:'تسجيل افتقاد',family:'تكوين الأسرة واختيار رب الأسرة','family-visit':'افتقاد أسرة',appointment:'تحديد موعد', 'weekly-rule':'مهمة أسبوعية',occurrence:'تعديل يوم واحد',import:'استيراد الأسماء',backup:'نسخة احتياطية',restore:'استعادة نسخة احتياطية','change-password':'تغيير كلمة المرور','confirm-delete':'حذف شخص','reset-people':'مسح الأسماء والسجلات','reset-settings':'ضبط الإعدادات الافتراضية','reset-all':'مسح كل بيانات التطبيق'})[modal]||'')}</h2><button class="icon-btn" data-action="close-modal" aria-label="إغلاق">×</button></div><div class="modal-body">${content}</div></div></div>`}
+function renderDetail(){let p=findP(selected);if(!p)return empty('الشخص غير موجود');let st=confessionStatus(p,data.settings),vs=visitStatus(p,data.settings);const entries=[...(p.confessions||[]).map(v=>({...v,kind:'confession'})),...(p.visits||[]).map(v=>({...v,kind:'visit'}))].sort((a,b)=>b.date.localeCompare(a.date)).slice(0,30);return `<div class="section-header"><div><h2 class="page-title">${e(p.name)}</h2><p class="subtitle">${p.servant?'خادم':'مخدوم عادي'} ${p.area?'· '+e(p.area):''}</p></div>${fmtStatus(st)}</div><div class="actions-inline" style="margin:13px 0">${button(p.servant?'إلغاء خادم':'تعيين خادم','toggle-servant','btn secondary')}${button('تعديل البيانات','edit-person','btn outline')}</div><div class="detail-meta"><div class="meta"><small>آخر اعتراف</small><b>${faDate(p.lastConfession)}</b></div><div class="meta"><small>موعد الاعتراف القادم</small><b>${faDate(st.due)}</b></div><div class="meta"><small>الفترة المحددة</small><b>${intervalFor(p,data.settings)} يوم</b></div><div class="meta"><small>الافتقاد القادم</small><b>${faDate(vs.due)}</b></div></div><div class="section-title">أرقام الاتصال</div><div class="actions-inline">${(p.phones||[]).map(ph=>`<a href="tel:${encodeURIComponent(ph)}" class="btn secondary">☎ ${e(ph)}</a><a href="https://wa.me/${waNumber(ph)}" target="_blank" rel="noopener noreferrer" class="btn outline">واتساب</a>`).join('')||'<span class="subtitle">لا توجد أرقام</span>'}</div><div class="detail-meta"><div class="meta"><small>الأسرة</small><b>${e(familyForPerson(p.id)?familyTitle(familyForPerson(p.id)):(p.family||'—'))}${familyForPerson(p.id)?.headId===p.id?' · رب الأسرة':''}</b></div><div class="meta"><small>المنطقة والعنوان</small><b>${e([p.area,p.address].filter(Boolean).join(' — ')||'—')}</b></div></div><div class="actions-inline" style="margin-top:15px">${button('✓ اعترف اليوم','quick-confess','btn',`data-id="${safeId(p)}"`)}${button('✓ تم الافتقاد اليوم','quick-visit','btn secondary',`data-id="${safeId(p)}"`)}</div><div class="actions-inline" style="margin-top:9px">${button('اعتراف بتاريخ سابق','confess-modal','btn outline')}${button('تسجيل افتقاد بتفاصيل','new-visit','btn outline',`data-id="${safeId(p)}"`)}${button(p.paused?'استئناف تذكير الاعتراف':'إيقاف تذكير الاعتراف','toggle-pause','btn outline')}</div><h3 class="section-title">السجل الزمني</h3><div class="timeline">${entries.length?entries.map(x=>`<div class="timeline-item"><b>${x.kind==='confession'?'✓ تم تسجيل اعتراف':e(x.type)} — ${faDate(x.date)}</b><p>${x.kind==='visit'?e([x.result,x.note].filter(Boolean).join(' · ')):'تاريخ فقط بدون أي تفاصيل عن الاعتراف'} <button class="link-like danger-color" data-action="delete-entry" data-kind="${x.kind}" data-entry-id="${a(x.id)}">حذف السجل</button></p></div>`).join(''):'<p class="subtitle">لسه مفيش سجلات</p>'}</div><div class="divider"></div>${button('حذف الشخص نهائيًا','delete-person','btn danger block')}`}
+function renderPersonForm(){let p=selected?findP(selected):newPerson();if(!p)return empty('غير موجود');return `<form id="person-form"><div class="field"><label>الاسم بالكامل *</label><input class="input" name="name" required maxlength="140" value="${a(p.name)}" placeholder="الاسم"></div><div class="field"><label>أرقام الموبايل (كل رقم في سطر)</label><textarea class="input" name="phones" rows="2" placeholder="010xxxxxxxx">${e((p.phones||[]).join('\n'))}</textarea></div><div class="fieldgrid"><div class="field"><label>المنطقة</label><input class="input" name="area" maxlength="90" value="${a(p.area)}"></div><div class="field"><label>وصف العائلة (اختياري)</label><input class="input" name="family" maxlength="90" value="${a(p.family)}"></div></div><div class="field"><label>العنوان</label><textarea class="input" name="address" rows="2" maxlength="350">${e(p.address)}</textarea></div><div class="switch-line"><div class="txt"><b>الشخص خادم؟</b><small>يتطبق عليه معدل متابعة الخدام تلقائيًا</small></div><input class="switch" type="checkbox" name="servant" ${p.servant?'checked':''}></div><div class="fieldgrid" style="margin-top:14px"><div class="field"><label>فترة خاصة للاعتراف (أيام)</label><input type="number" min="1" max="3650" class="input" name="periodOverride" placeholder="اتركها فارغة" value="${p.periodOverride||''}"></div><div class="field"><label>${selected?'إضافة اعتراف بتاريخ (اختياري)':'آخر اعتراف مسجل (اختياري)'}</label><input class="input" type="date" name="initialDate" max="${today()}"></div></div><p class="help">لو سيبت الفترة الخاصة فاضية، هيتطبق نظام الخدام أو العاديين. البيانات مش هتظهر على أي سيرفر.</p><button type="submit" class="btn block">${selected?'حفظ التعديل':'إضافة الشخص'}</button></form>`}
+function renderConfessForm(){
+ const p=findP(selected);let yesterday=addDays(today(),-1);
+ return `<form id="confession-form"><p class="subtitle">${e(p?.name)} — اختار تاريخ الاعتراف السابق واحفظه. مش هيغيّر ترتيب الأسماء.</p><div class="date-presets">${button('أمس','date-preset','btn outline',`data-days="1"`)}${button('من أسبوع','date-preset','btn outline',`data-days="7"`)}${button('من شهر','date-preset','btn outline',`data-months="1"`)}</div><div class="field"><label>تاريخ الاعتراف *</label><input id="confession-date" class="input" type="date" name="date" required max="${today()}" value="${yesterday}"></div><button type="submit" class="btn block">✓ حفظ الاعتراف بالتاريخ المختار</button><p class="help">لو سجلت تاريخ أقدم من آخر اعتراف موجود، هيُضاف للسجل لكن دورة المتابعة تفضل محسوبة من أحدث تاريخ.</p></form>`;
+}
+
+function renderVisitForm(){let p=findP(selected);return `<form id="visit-form"><p class="subtitle">${e(p?.name)} — تسجيل افتقاد جديد</p><div class="fieldgrid"><div class="field"><label>التاريخ</label><input class="input" type="date" name="date" required max="${today()}" value="${today()}"></div><div class="field"><label>نوع الافتقاد</label><select name="type" class="input"><option>زيارة منزلية</option><option>اتصال تليفوني</option><option>مقابلة بالكنيسة</option><option>متابعة أخرى</option></select></div></div><div class="field"><label>النتيجة</label><select class="input" name="result"><option>تم التواصل</option><option>لم يتم الرد</option><option>يحتاج إعادة متابعة</option></select></div><div class="field"><label>الافتقاد القادم</label><select class="input" name="follow"><option value="auto">بعد ${data.settings.visitDays} يوم</option><option value="7">بعد أسبوع</option><option value="30">بعد 30 يوم</option><option value="none">بدون موعد</option><option value="specific">تاريخ محدد</option></select></div><div class="field"><label>تاريخ مخصص (لو اخترته)</label><input class="input" name="nextDate" type="date" min="${today()}"></div><div class="field"><label>ملاحظة عامة (اختياري — بدون بيانات حساسة)</label><textarea class="input" name="note" maxlength="800" rows="3"></textarea></div><button class="btn block" type="submit">حفظ الافتقاد</button></form>`}
+function renderImporter(){
+ if(!imported)return `<div class="field"><label>اختار ملف Excel (.xlsx) أو CSV أو VCF</label><input class="input" id="import-file" type="file" accept=".xlsx,.csv,.txt,.vcf,text/vcard,text/x-vcard"></div><p class="help">الأسماء العربية في VCF مدعومة مع UTF-8 وWindows-1256 وUTF-16 وQuoted-Printable وBase64. ولأرقام حساب Google، افتح contacts.google.com واختر تصدير Google CSV أو vCard ثم استورد الملف هنا؛ من غير اتصال مباشر بالحساب أو رفع بيانات.</p>`;
+ const option=(key,label)=>`<div class="field"><label>${label}</label><select class="input import-map" data-map="${key}"><option value="-1">— غير موجود —</option>${imported.headers.map((h,i)=>`<option value="${i}" ${mapping[key]===i?'selected':''}>${e(h)}</option>`).join('')}</select></div>`;
+ const isVCF=imported.kind==='contacts';const selectEncoding=isVCF?`<div class="field"><label>ترميز ملف VCF (لو الأسماء العربية مش ظاهرة صح، غيّره وشوف المعاينة)</label><select class="input" id="vcf-encoding">${[['auto','تلقائي — موصى به'],['utf-8','UTF-8'],['windows-1256','Arabic Windows-1256'],['utf-16le','UTF-16 LE'],['utf-16be','UTF-16 BE'],['iso-8859-6','Arabic ISO-8859-6'],['windows-1252','Windows-1252']].map(([v,l])=>`<option value="${v}" ${imported.vcfEncoding===v?'selected':''}>${l}</option>`).join('')}</select></div>`:'';
+ const missingArabic=isVCF&&imported.rows.length&&!imported.contacts.some(c=>/[\u0600-\u06ff]/.test(c.name));
+ const unnamed=isVCF?imported.contacts.filter(c=>c.name==='بدون اسم').length:0;
+ return `<p class="subtitle">تمت قراءة ${imported.rows.length} ${isVCF?'جهة اتصال':'صف'} · راجع معاينة الأسماء قبل الحفظ</p>${selectEncoding}${isVCF?`<div class="help">تم استخراج ${imported.contacts.reduce((n,c)=>n+c.phones.length,0)} رقم. ${unnamed?`هناك ${unnamed} جهة بدون اسم؛ لو الأسماء موجودة أصلاً في الملف غيّر الترميز أو أرسل عينة من الملف لمراجعة السبب.`:'الأسماء المستخرجة ظاهرة بالأسفل. عند إعادة الاستيراد يتم إصلاح الأسماء القديمة غير المقروءة إذا تطابقت أرقامها، دون تغيير الأسماء السليمة.'}</div>`:`<div class="fieldgrid">${option('name','الاسم')}${option('phone','الموبايل')}${option('area','المنطقة')}${option('family','العائلة')}${option('address','العنوان')}</div>`}${isVCF?`<label class="switch-line" style="cursor:pointer"><span class="txt"><b>تحديث الأسماء القديمة من ملف VCF</b><small>فعّل ده لو نفس الأرقام اتضافت قبل كده بأسماء عربية غلط. هيستبدل الأسماء الموجودة المطابقة للأرقام فقط، من غير مسح سجلاتها.</small></span><input class="switch" id="import-replace-names" type="checkbox" ${replaceImportNames?'checked':''}></label>`:''}${missingArabic?'<div class="import-preview-warning"><b>تنبيه:</b> لم يظهر أي اسم بأحرف عربية في المعاينة. لو الملف فيه أسماء عربية، جرّب تغيير الترميز قبل تأكيد الاستيراد.</div>':''}<div class="csv-preview"><table><thead><tr>${imported.headers.slice(0,8).map(h=>`<th>${e(h)}</th>`).join('')}</tr></thead><tbody>${imported.rows.slice(0,20).map(r=>`<tr>${imported.headers.slice(0,8).map((_,i)=>`<td>${e(r[i]||'')}</td>`).join('')}</tr>`).join('')}</tbody></table></div><div class="actions-inline">${button('تأكيد الاستيراد','confirm-import','btn')}${button('اختار ملف تاني','reset-import','btn outline')}</div>`;
+}
+
+function renderBackup(){return `<p class="subtitle">النسخة الاحتياطية مشفرة بنفس كلمة مرور التطبيق، وتنفع تتنقل لجهاز تاني بشرط معرفة كلمة المرور.</p><div class="warning">احفظ النسخة في مكان آمن (Files أو فلاشة أو مساحة خاصة). مش هنصدر بيانات الأشخاص بصيغة مكشوفة.</div>${button('تحميل النسخة المشفرة','do-backup','btn block')}`}
+function renderRestore(){return `<p class="subtitle">اختار نسخة احتياطية مشفرة من تطبيق الراعي. بعد الاستعادة هيتم قفل التطبيق ويطلب كلمة مرور النسخة.</p><div class="warning">تنبيه: استعادة النسخة هتستبدل كل البيانات الحالية على الجهاز. صدّر نسخة من بياناتك الحالية الأول لو محتاجها.</div><div class="field"><label>ملف النسخة (.json)</label><input id="restore-file" class="input" type="file" accept=".json,application/json"></div>${button('استعادة النسخة واستبدال البيانات','confirm-restore','btn danger block')}`}
+function renderChangePassword(){return `<form id="password-form"><p class="subtitle">هيتعمل تشفير جديد لكل البيانات بنفس المحتوى.</p><div class="field"><label>كلمة المرور الجديدة (٨ أحرف أو أكثر)</label><input class="input" type="password" name="newPass" minlength="8" autocomplete="new-password" required></div><div class="field"><label>تأكيد كلمة المرور الجديدة</label><input class="input" type="password" name="confirmPass" minlength="8" autocomplete="new-password" required></div><button type="submit" class="btn block">تغيير كلمة المرور</button></form>`}
+function renderConfirmDelete(){let p=findP(selected);return `<p class="danger-note">هل أنت متأكد من حذف «${e(p?.name)}» وكل سجل الافتقاد والاعتراف المرتبط به؟ لا يمكن التراجع إلا باستعادة نسخة احتياطية أقدم.</p><div class="actions-inline">${button('حذف نهائيًا','confirm-delete-person','btn danger')}${button('إلغاء','close-modal','btn secondary')}</div>`}
+function renderResetForm(){
+ const name=modal==='reset-people'?'مسح الأسماء والسجلات':modal==='reset-settings'?'إعادة الإعدادات الافتراضية':'مسح كل بيانات التطبيق';
+ const detail=modal==='reset-people'?`سيتم حذف جميع الأشخاص (${data.people.length})، وأرقامهم، وسجل الاعتراف والافتقاد. ستبقى الإعدادات وكلمة المرور.`:modal==='reset-settings'?'سيتم إعادة مدد متابعة الخدام والعاديين والافتقاد والتنبيهات للإعدادات الافتراضية. ستبقى كل الأسماء والسجلات محفوظة.':'سيتم حذف الأسماء والسجلات والإعدادات ومفتاح التشفير المحلي، ثم يبدأ التطبيق كأنه جديد تمامًا.';
+ return `<form id="reset-form"><div class="import-preview-warning"><b>عملية لا يمكن التراجع عنها.</b><div>${detail}</div></div><p class="help">الأفضل تصدّر نسخة احتياطية مشفرة من الإعدادات قبل المسح.</p><div class="field"><label>للتأكيد اكتب كلمة «مسح»</label><input class="input" name="approval" autocomplete="off" autocapitalize="off" spellcheck="false" required placeholder="مسح"></div><button type="submit" class="btn danger block">${name} نهائيًا</button></form>`;
+}
+
+async function quickConfession(id){let p=findP(id);if(!p)return toast('الاسم غير موجود');if(p.lastConfession===today()){toast('تم تسجيل اعتراف النهارده بالفعل');return}const next=addConfession(p,today());const entry=next.confessions.at(-1);lastUndo={kind:'confession',personId:id,entryId:entry.id};replaceP(next);justCompletedId=id;const oldScroll=window.scrollY;render();window.scrollTo(0,oldScroll);await save();toast(`تم تسجيل اعتراف ${p.name} النهارده — دورة جديدة بدأت`,true)}
+async function undoLast(){
+ if(!lastUndo)return;
+ const undo=lastUndo;lastUndo=null;
+ if(undo.kind==='visit'){
+  for(let c of undo.changes){let p=findP(c.personId);if(!p)continue;if(!(p.visits||[]).some(v=>v.id===c.entryId))continue;replaceP({...removeVisit(p,c.entryId),followupDue:c.previousFollowupDue});}
+  justVisitedIds=[];
+ }else{
+  let p=findP(undo.personId);if(p)replaceP(removeConfession(p,undo.entryId));
+ }
+ render();await save();toast('تم التراجع عن التسجيل');
+}
+async function perform(action,el){try{switch(action){
+case'nav':setPage(el.dataset.page);break;
+
+case'go-schedule':setPage('schedule');break;
+case'go-coptic':setPage('coptic');break;
+case'new-schedule-confession':startAppointment('confession','',planDay);break;
+case'new-schedule-visit':startAppointment('visit','',planDay);break;
+case'new-schedule-family':startAppointment('family-visit','',planDay);break;
+case'new-schedule-task':startAppointment('task','',planDay);break;
+case'schedule-confession':startAppointment('confession',el.dataset.id,planDay);break;
+case'schedule-visit':startAppointment('visit',el.dataset.id,planDay);break;
+case'schedule-family':startAppointment('family-visit',el.dataset.familyId,planDay);break;
+case'new-recurring':scheduleDraft={kind:'task',editId:null};modal='weekly-rule';render();break;
+case'edit-rule':scheduleDraft={kind:'task',editId:el.dataset.id};modal='weekly-rule';render();break;
+case'delete-rule':{const r=data.taskRules.find(x=>x.id===el.dataset.id);if(!r)break;if(!confirm('حذف المهمة الأسبوعية «'+r.title+'» وكل التعديلات الخاصة بها؟'))break;data.taskRules=data.taskRules.filter(x=>x.id!==r.id);data.taskExceptions=data.taskExceptions.filter(x=>x.ruleId!==r.id);await save();render();toast('تم حذف التكرار');break}
+case'edit-occurrence':editingOccurrence={ruleId:el.dataset.id,date:el.dataset.date};modal='occurrence';render();showConflictPreview();break;
+case'cancel-occurrence':{if(!editingOccurrence)break;if(!confirm('إلغاء هذا اليوم فقط من المهمة المتكررة؟'))break;data.taskExceptions=data.taskExceptions.filter(x=>!(x.ruleId===editingOccurrence.ruleId&&x.date===editingOccurrence.date));data.taskExceptions.push({id:uid(),...editingOccurrence,cancelled:true});modal='';await save();render();toast('تم إلغاء هذا اليوم فقط');break}
+case'reset-occurrence':{if(!editingOccurrence)break;data.taskExceptions=data.taskExceptions.filter(x=>!(x.ruleId===editingOccurrence.ruleId&&x.date===editingOccurrence.date));modal='';await save();render();toast('رجع اليوم إلى مواعيد التكرار الأصلية');break}
+case'pick-plan-day':planDay=el.dataset.date;render();break;
+case'plan-prev':planDay=addDays(planDay,planMode==='week'?-7:-1);render();break;
+case'plan-next':planDay=addDays(planDay,planMode==='week'?7:1);render();break;
+case'plan-today':planDay=today();render();break;
+case'pick-schedule-target':chosenTarget=el.dataset.id;render();showConflictPreview();break;
+case'clear-schedule-target':chosenTarget=null;targetQuery='';render();break;
+case'edit-appointment':editAppointment(el.dataset.id);showConflictPreview();break;
+case'cancel-appointment':{const a0=data.appointments.find(x=>x.id===el.dataset.id);if(!a0)break;if(!confirm('إلغاء الموعد المحدد «'+itemLabel(a0)+'»؟'))break;a0.status='cancelled';await save();render();toast('تم إلغاء الموعد');break}
+case'finish-appointment':{const ap=data.appointments.find(x=>x.id===el.dataset.id);if(!ap||ap.status!=='planned')break;if(ap.date>today())throw Error('لا يمكن تسجيل التنفيذ قبل تاريخ الموعد');if(!confirm('تسجيل أن الموعد تم؟ سيتم تسجيل الافتقاد أو الاعتراف بتاريخ الموعد نفسه عند انطباقه.'))break;
+ if(ap.kind==='confession'){const p=findP(ap.personId);if(p&&!(p.confessions||[]).some(x=>x.date===ap.date))replaceP(addConfession(p,ap.date));}
+ if(ap.kind==='visit'){const p=findP(ap.personId);if(p)registerVisitGroup([p],{date:ap.date,type:'زيارة منزلية',result:'تم التواصل',nextDue:'auto'});}
+ if(ap.kind==='family-visit'){const f=data.families.find(x=>x.id===ap.familyId);if(f)registerVisitGroup(familyMembers(f),{date:ap.date,type:'زيارة منزلية',result:'تم التواصل',nextDue:'auto'});}
+ ap.status='done';await save();render();toast('تم تسجيل تنفيذ الموعد');break}
+case'add-person':setModal('person');break;
+case'edit-person':setModal('person',selected);break;
+case'detail':pickPerson(el.dataset.id);break;
+case'close-modal':closeModal();break;
+case'view-people':peopleFilter='all';setPage('people');break;
+case'view-conf':peopleFilter='due';setPage('people');break;
+case'view-visits':confFilter='visitsdue';setPage('visits');break;
+case'go-family-visits':setPage('family-visits');break;
+case'go-individual-visits':confFilter='all';setPage('visits');break;
+case'people-filter':peopleFilter=el.dataset.filter;peopleLimit=LIST_BATCH;justCompletedId=null;render();break;
+case'conf-filter':peopleFilter=el.dataset.filter;justCompletedId=null;setPage('people');break;
+case'visits-filter':confFilter=el.dataset.filter;visitLimit=LIST_BATCH;render();break;
+case'quick-confess':await quickConfession(el.dataset.id||selected);break;
+case'more-people':peopleLimit+=LIST_BATCH;updatePersonResults();break;
+case'more-visits':visitLimit+=LIST_BATCH;updatePersonResults();break;
+case'more-family-picker':pickerLimit+=PICKER_BATCH;updateFamilyPickerResults();break;
+case'more-families':familyLimit+=FAMILY_BATCH;updateFamilyList();break;
+case'undo':await undoLast();break;
+case'confess-modal':setModal('confess',el.dataset.id||selected);break;
+case'date-preset':{let field=document.getElementById('confession-date');if(!field)break;let selectedDate;if(el.dataset.months){let d=new Date();d.setDate(1);d.setMonth(d.getMonth()-Number(el.dataset.months));let prev=new Date();let maxDays=new Date(d.getFullYear(),d.getMonth()+1,0).getDate();selectedDate=today(new Date(d.getFullYear(),d.getMonth(),Math.min(prev.getDate(),maxDays),12))}else selectedDate=addDays(today(),-Number(el.dataset.days||1));field.value=selectedDate;field.focus();break}
+case'new-visit':setModal('visit',el.dataset.id||selected);break;
+case'quick-visit':await quickVisitToday(el.dataset.id||selected);break;
+case'family-start':beginFamilySelection();break;
+case'family-edit':beginFamilySelection(el.dataset.familyId);break;
+case'family-cancel':endFamilySelection();break;
+case'family-next':{if(familySelection.length<2)throw Error('اختار شخصين على الأقل');setModal('family');break}
+case'family-visit-form':setModal('family-visit',el.dataset.familyId);break;
+case'select-family-visit':familyVisitSelectedId=el.dataset.familyId;setPage('family-visits');document.getElementById('family-visit-editor')?.scrollIntoView({behavior:'smooth',block:'start'});document.getElementById('family-visit-date')?.focus({preventScroll:true});break;
+case'family-date-preset':{const field=document.getElementById('family-visit-date');if(!field)break;let date;if(el.dataset.months){const d=new Date();d.setDate(1);d.setMonth(d.getMonth()-Number(el.dataset.months));const max=new Date(d.getFullYear(),d.getMonth()+1,0).getDate();date=today(new Date(d.getFullYear(),d.getMonth(),Math.min(new Date().getDate(),max),12))}else{date=addDays(today(),-Number(el.dataset.days||0))}field.value=date;field.focus();break}
+case'quick-family-visit':await quickFamilyVisitToday(el.dataset.familyId);break;
+case'family-remove':{
+ let f=(data.families||[]).find(x=>x.id===el.dataset.familyId);if(!f)throw Error('الأسرة غير موجودة');
+ if(!confirm(`تفكيك ${familyTitle(f)}؟ هيتفك الربط بين الأفراد فقط، وكل سجل اعتراف وافتقاد هيفضل محفوظ.`))break;
+ data.families=data.families.filter(x=>x.id!==f.id);if(familyVisitSelectedId===f.id)familyVisitSelectedId=null;await save();render();toast('تم تفكيك الأسرة بدون حذف الأشخاص أو السجلات');break;
+}
+case'toggle-servant-row':case'toggle-servant':{let p=findP(el.dataset.id||selected);if(!p)return;replaceP({...p,servant:!p.servant});await save();toast(p.servant?'تم إلغاء تصنيف خادم':'تم تصنيف الشخص كخادم');render();break}
+case'toggle-pause':{let p=findP(selected);if(!p)return;replaceP({...p,paused:!p.paused});await save();render();break}
+case'import':setModal('import');break;
+case'reset-import':imported=null;mapping=null;pendingImportFile=null;replaceImportNames=false;render();break;
+case'confirm-import':{if(!imported)break;if(imported.kind!=='contacts'&&(mapping.name<0||mapping.phone<0)){toast('حدد عمود الاسم والموبايل');break}let rows=mapImportRows(imported,mapping),r=mergeImported(data.people,rows,replaceImportNames);if(!r.added&&!r.updated){toast(`لا توجد إضافات جديدة — ${r.skipped} مكرر أو فارغ`);break}data.people=r.people;closeModal();await save();toast(`تمت إضافة ${r.added} شخص · تحديث أرقام ${r.updated} · تخطي ${r.skipped}`);break}
+case'backup':setModal('backup');break;
+case'do-backup':{await saveChain;let env=await readVault();if(!validEnvelope(env))throw Error('لا توجد بيانات صالحة للتصدير');downloadFile(`alraei-backup-${today()}.json`,JSON.stringify({...env,exportedAt:new Date().toISOString()},null,2));toast('تم تجهيز النسخة الاحتياطية المشفرة');break}
+case'restore':setModal('restore');break;
+case'confirm-restore':{let file=document.getElementById('restore-file')?.files?.[0];if(!file)throw Error('اختار ملف النسخة أولًا');if(file.size>20e6)throw Error('حجم الملف كبير');let env=JSON.parse(await file.text());if(!validEnvelope(env))throw Error('ده مش ملف نسخة احتياطية صالح');let pass=prompt('اكتب كلمة مرور النسخة الاحتياطية للتأكد من إمكانية استعادتها:');if(!pass)return;await openVault(pass,env);if(!confirm('هل أنت متأكد من استبدال جميع البيانات الحالية بالنسخة المستوردة؟'))return;await saveChain;await storeVault(env);vault=env;let restored=await openVault(pass,env);data=restored.data;ensureFamilySchema();unlocked={key:restored.key,salt:restored.salt};await rememberThisDevice();closeModal();toast('تمت الاستعادة وفتح البيانات تلقائيًا.');break}
+case'restore-locked':{let fileInput=document.createElement('input');fileInput.type='file';fileInput.accept='.json,application/json';fileInput.onchange=async()=>{try{let file=fileInput.files[0];if(!file)return;if(file.size>20e6)throw Error('حجم الملف كبير');let env=JSON.parse(await file.text());if(!validEnvelope(env))throw Error('النسخة غير صالحة');let pass=prompt('كلمة مرور النسخة الاحتياطية:');if(!pass)return;await openVault(pass,env);if(!confirm('سيتم استبدال الخزنة الحالية. هل توافق؟'))return;await saveChain;await storeVault(env);vault=env;let restored=await openVault(pass,env);data=restored.data;ensureFamilySchema();unlocked={key:restored.key,salt:restored.salt};await rememberThisDevice();render();toast('تمت استعادة النسخة وفتح التطبيق')}catch(ex){showError(ex)}};fileInput.click();break}
+case'change-password':setModal('change-password');break;
+case'reports':setPage('reports');break;
+case'back-settings':setPage('settings');break;
+case'lock':await saveChain;lock();break;
+case'delete-person':modal='confirm-delete';render();break;
+case'reset-people':case'reset-settings':case'reset-all':setModal(action);break;
+case'confirm-delete-person':{let p=findP(selected);if(!p)break;data.people=data.people.filter(x=>x.id!==p.id);data.appointments=(data.appointments||[]).filter(x=>x.personId!==p.id);cleanupFamilies();closeModal();await save();toast('تم حذف الشخص وسجله وتحديث أفراد الأسرة');break}
+case'delete-entry':{let p=findP(selected),kind=el.dataset.kind,id=el.dataset.entryId;if(!p)return;if(!confirm('هل تريد حذف هذا السجل؟'))return;replaceP(kind==='confession'?removeConfession(p,id):removeVisit(p,id));await save();render();toast('تم حذف السجل');break}
+default:console.warn('Unknown action',action)
+}}catch(ex){showError(ex)}}
+function lock(){unlocked=null;data=null;modal='';selected=null;lastUndo=null;search='';page='home';renderAuth()}
+function validatePassword(s){if(!s||s.length<8)throw Error('كلمة المرور لازم تكون ٨ أحرف على الأقل')}
+async function handleSubmit(ev){ev.preventDefault();let form=ev.target,fd=new FormData(form);try{switch(form.id){
+case'auth-form':{let pass=String(fd.get('password')||'');if(!vault){validatePassword(pass);if(pass!==fd.get('confirm'))throw Error('تأكيد كلمة المرور مختلف');data=starterData();unlocked=await newVault(pass,data);vault=await readVault()}else{let result=await openVault(pass,vault);data=result.data;ensureFamilySchema();unlocked={key:result.key,salt:result.salt}}await rememberThisDevice();render();if(pendingNotificationPerson&&findP(pendingNotificationPerson))pickPerson(pendingNotificationPerson);pendingNotificationPerson=null;toast('تم فتح التطبيق');if(data.settings.notifyEnabled&&nativeAvailable())rescheduleNotifications(data).catch(console.warn);break}
+case'reset-form':{
+ if(String(fd.get('approval')||'').trim()!=='مسح')throw Error('لازم تكتب كلمة «مسح» للتأكيد');
+ const kind=modal;
+ if(!['reset-people','reset-settings','reset-all'].includes(kind))throw Error('نوع العملية غير معروف');
+ if(!confirm(kind==='reset-all'?'تأكيد أخير: حذف جميع البيانات والإعدادات والتشفير المحلي نهائيًا؟':kind==='reset-people'?'تأكيد أخير: حذف جميع الأشخاص وسجلاتهم نهائيًا؟':'تأكيد إعادة كل إعدادات المتابعة للافتراضي؟'))return;
+ await saveChain;
+ if(kind==='reset-all'){
+  await clearEntireVault();vault=null;unlocked=null;data=null;modal='';selected=null;imported=null;pendingImportFile=null;lastUndo=null;page='home';search='';peopleFilter='all';renderAuth();toast('تم مسح كل بيانات التطبيق والإعدادات');
+ }else{
+  if(kind==='reset-people'){data.people=[];data.families=[];data.appointments=(data.appointments||[]).filter(a=>a.kind==='task');familyVisitSelectedId=null;familySearch='';}
+  else data.settings=starterData().settings;
+  modal='';selected=null;imported=null;pendingImportFile=null;lastUndo=null;search='';justCompletedId=null;peopleFilter='all';page='home';await save();render();toast(kind==='reset-people'?'تم مسح الأشخاص والسجلات':'تمت إعادة الإعدادات الافتراضية');
+ }
+ break;
+}
+case'family-form':{
+ let ids=[...new Set(familySelection)].filter(id=>!!findP(id));if(ids.length<2)throw Error('اختار شخصين على الأقل');
+ const headId=String(fd.get('headId')||'');if(!ids.includes(headId))throw Error('اختار رب الأسرة من الأفراد');
+ let familyName=String(fd.get('name')||'').trim().slice(0,140),old=familyEditingId?(data.families||[]).find(f=>f.id===familyEditingId):null;
+ const other=data.families.filter(f=>f.id!==old?.id&&f.memberIds.some(id=>ids.includes(id)));
+ if(other.length&&!confirm('بعض الأشخاص موجودين في أسر تانية، هيتنقلوا للأسرة دي من غير فقدان سجلاتهم. متابعة؟'))return;
+ data.families=data.families.map(f=>f.id===old?.id?f:{...f,memberIds:f.memberIds.filter(id=>!ids.includes(id))});
+ const f={id:old?.id||uid(),name:familyName,headId,memberIds:ids,createdAt:old?.createdAt||new Date().toISOString()};
+ if(old)data.families=data.families.map(x=>x.id===old.id?f:x);else data.families.push(f);
+ cleanupFamilies();familySelectMode=false;familySelection=[];familyEditingId=null;familySearch='';familyVisitSelectedId=f.id;modal='';selected=null;page='family-visits';await save();render();window.scrollTo(0,0);toast('تم حفظ الأسرة ورب الأسرة وعدد '+ids.length+' أفراد');break;
+}
+case'family-visit-form':case'family-visit-page-form':{
+ let f=(data.families||[]).find(x=>x.id===(form.id==='family-visit-page-form'?String(fd.get('familyId')||''):selected));if(!f)throw Error('الأسرة غير موجودة');
+ let date=String(fd.get('date')||''),follow=String(fd.get('follow')||'auto'),nextDate=String(fd.get('nextDate')||'');
+ if(!parseDate(date)||date>today())throw Error('تاريخ الافتقاد غير صالح');
+ let next=follow==='auto'?'auto':follow==='none'?'':follow==='specific'?nextDate:addDays(date,+follow);
+ if(follow==='specific'&&(!parseDate(nextDate)||nextDate<date))throw Error('اختار ميعاد متابعة صحيح');
+ const changes=registerVisitGroup(familyMembers(f),{date,type:String(fd.get('type')||''),result:String(fd.get('result')||''),note:String(fd.get('note')||''),nextDue:next});
+ if(!changes.length)throw Error('الزيارة بنفس النوع والتاريخ والنتيجة مسجلة بالفعل لكل أفراد الأسرة');
+ lastUndo={kind:'visit',changes};justVisitedIds=changes.map(x=>x.personId);familyVisitSelectedId=f.id;if(form.id==='family-visit-page-form'){render();window.scrollTo(0,0)}else closeModal();await save();toast('تم تسجيل الافتقاد لـ '+changes.length+' فرد من الأسرة'+(changes.length<familyMembers(f).length?' (بعض الأفراد مسجّل لهم نفس الافتقاد)':''),true);break;
+}
+
+case'appointment-form':{
+ const kind=scheduleDraft?.kind;if(!['confession','visit','family-visit','task'].includes(kind))throw Error('نوع الموعد غير صالح');
+ const date=String(fd.get('date')||''),start=String(fd.get('start')||''),end=String(fd.get('end')||''),note=String(fd.get('note')||'').trim().slice(0,600),title=String(fd.get('title')||'').trim().slice(0,160);
+ if(!parseDate(date))throw Error('حدد تاريخًا صحيحًا');if(!validHours(start,end))throw Error('وقت النهاية لازم يكون بعد البداية وفي نفس اليوم');
+ if(kind==='task'&&!title)throw Error('اكتب عنوان المهمة');
+ if(kind==='family-visit'&&!data.families.some(f=>f.id===chosenTarget))throw Error('اختر الأسرة أولًا');
+ if(['visit','confession'].includes(kind)&&!findP(chosenTarget))throw Error('اختر الشخص أولًا');
+ const skip=scheduleDraft.editId||'',clash=overlapsFor(date,start,end,skip);if(clash.length&&!confirm('⚠ يوجد تعارض في نفس الوقت مع:\n'+clash.slice(0,8).map(x=>itemLabel(x)+' ('+x.start+'–'+x.end+')').join('\n')+'\n\nتحفظ الموعد رغم التعارض؟'))return;
+ const old=scheduleDraft.editId?data.appointments.find(x=>x.id===scheduleDraft.editId):null;
+ const a0={id:old?.id||uid(),kind,title,personId:kind==='confession'||kind==='visit'?chosenTarget:null,familyId:kind==='family-visit'?chosenTarget:null,date,start,end,note,remindMinutes:Number(fd.get('remindMinutes')||0),status:old?.status||'planned',createdAt:old?.createdAt||new Date().toISOString()};
+ if(old)data.appointments=data.appointments.map(x=>x.id===old.id?a0:x);else data.appointments.push(a0);
+ planDay=date;modal='';scheduleDraft=null;chosenTarget=null;page='schedule';await save();render();toast(old?'تم تعديل الموعد':'تم حفظ الموعد');break;
+}
+case'rule-form':{
+ const title=String(fd.get('title')||'').trim().slice(0,160),days=fd.getAll('weekday').map(Number),startDate=String(fd.get('startDate')||''),months=Number(fd.get('months')),
+ start=String(fd.get('start')||''),end=String(fd.get('end')||'');
+ if(!title)throw Error('اكتب عنوان المهمة');if(!parseDate(startDate))throw Error('اختار تاريخ بداية صالح');if(!Number.isInteger(months)||months<1||months>36)throw Error('عدد الشهور من 1 إلى 36');
+ if(!days.length||days.some(d=>!Number.isInteger(d)||d<0||d>6))throw Error('اختار يومًا واحدًا على الأقل');if(!validHours(start,end))throw Error('وقت النهاية لازم يكون بعد البداية');
+ const old=scheduleDraft?.editId?data.taskRules.find(x=>x.id===scheduleDraft.editId):null;
+ const endDate=addDays(plusMonths(startDate,months),-1);
+ const rule={id:old?.id||uid(),kind:'task',title,days:[...new Set(days)],startDate,endDate,months,start,end,note:String(fd.get('note')||'').slice(0,600),remindMinutes:30,createdAt:old?.createdAt||new Date().toISOString()};
+ // A warning for the first 45 days, not an expensive 3-year scan.
+ const sampleEnd=endDate<addDays(startDate,44)?endDate:addDays(startDate,44);
+ let conflictCount=0;for(let dt=startDate;dt<=sampleEnd;dt=addDays(dt,1)){if(rule.days.includes(parseDate(dt).getDay()))conflictCount+=overlapsFor(dt,start,end,old?.id?old.id+'@'+dt:'').length;}
+ if(conflictCount&&!confirm('⚠ توجد '+conflictCount+' حالات تعارض محتملة في أول 45 يومًا من التكرار. هل تريد المتابعة؟'))return;
+ if(old)data.taskRules=data.taskRules.map(x=>x.id===old.id?rule:x);else data.taskRules.push(rule);
+ modal='';scheduleDraft=null;planDay=startDate;page='schedule';await save();render();toast('تم حفظ المهمة المتكررة حتى '+faDate(endDate));break;
+}
+case'exception-form':{
+ const {ruleId,date}=editingOccurrence||{};const r=data.taskRules.find(x=>x.id===ruleId);if(!r||!parseDate(date))throw Error('التكرار غير موجود');
+ const start=String(fd.get('start')||''),end=String(fd.get('end')||''),title=String(fd.get('title')||'').trim().slice(0,160),note=String(fd.get('note')||'').trim().slice(0,600);
+ if(!validHours(start,end)||!title)throw Error('راجع العنوان ووقت البداية والنهاية');
+ const clash=overlapsFor(date,start,end,ruleId+'@'+date);if(clash.length&&!confirm('⚠ الموعد يتعارض مع: '+clash.map(itemLabel).join('، ')+' — تحفظ تعديل هذا اليوم؟'))return;
+ data.taskExceptions=data.taskExceptions.filter(x=>!(x.ruleId===ruleId&&x.date===date));data.taskExceptions.push({id:uid(),ruleId,date,title,start,end,note,cancelled:false});
+ planDay=date;modal='';editingOccurrence=null;page='schedule';await save();render();toast('تم تعديل هذا اليوم فقط');break;
+}
+case'person-form':{let name=String(fd.get('name')||'').trim();if(!name)throw Error('اسم الشخص مطلوب');let raw=String(fd.get('phones')||'').split(/[\n,،;]+/).map(normalizePhone).filter(Boolean);let phones=[...new Set(raw)],override=String(fd.get('periodOverride')||'').trim();if(override&&!validPeriod(override))throw Error('الفترة الخاصة لازم تكون من ١ إلى ٣٦٥٠ يوم');let initialDate=String(fd.get('initialDate')||'');if(initialDate&&(!parseDate(initialDate)||initialDate>today()))throw Error('تاريخ الاعتراف غير صالح');let editing=!!selected;let old=selected?findP(selected):newPerson();let duplicate=data.people.some(x=>x.id!==old.id&&phones.some(ph=>x.phones.some(a=>normalizePhone(a)===ph)));if(duplicate&&!confirm('في رقم موجود لشخص تاني. هل تريد الاحتفاظ به رغم التكرار؟'))return;let updated={...old,name:name.slice(0,140),phones,area:String(fd.get('area')||'').trim().slice(0,90),family:String(fd.get('family')||'').trim().slice(0,90),address:String(fd.get('address')||'').trim().slice(0,350),servant:fd.has('servant'),periodOverride:override?+override:null};if(initialDate)updated=addConfession(updated,initialDate);if(selected)replaceP(updated);else data.people.push(updated);closeModal();await save();toast(editing?'تم تعديل البيانات':'تمت إضافة الشخص');break}
+case'confession-form':{let date=String(fd.get('date')||'');let p=findP(selected);if(!p)throw Error('الشخص غير موجود');if(p.confessions.some(x=>x.date===date))throw Error('التاريخ ده مسجل بالفعل');replaceP(addConfession(p,date));closeModal();await save();toast('تم تسجيل تاريخ الاعتراف وحساب الدورة الجديدة');break}
+case'visit-form':{let p=findP(selected);if(!p)throw Error('الشخص غير موجود');let date=String(fd.get('date')||''),follow=String(fd.get('follow')||'auto'),nextDate=String(fd.get('nextDate')||'');let next=follow==='auto'?'auto':follow==='none'?'':follow==='specific'?nextDate:addDays(date,+follow);if(follow==='specific'&&(!parseDate(nextDate)||nextDate<today()))throw Error('اختار ميعاد متابعة صحيح');replaceP(addVisit(p,{date,type:String(fd.get('type')||''),result:String(fd.get('result')||''),note:String(fd.get('note')||''),nextDue:next},data.settings));closeModal();await save();toast('تم تسجيل الافتقاد والموعد القادم');break}
+case'settings-form':{let servant=+fd.get('servantDays'),ordinary=+fd.get('ordinaryDays'),visit=+fd.get('visitDays');if(!validPeriod(servant)||!validPeriod(ordinary)||!validPeriod(visit))throw Error('الفترات لازم تكون من ١ إلى ٣٦٥٠ يوم');let enabled=fd.has('notifyEnabled'),time=String(fd.get('notifyTime')||'09:00').split(':').map(Number);if(!Number.isInteger(time[0])||time[0]<0||time[0]>23||!Number.isInteger(time[1])||time[1]<0||time[1]>59)throw Error('وقت التنبيهات غير صالح');if(enabled&&!data.settings.notifyEnabled){let permission=await askNotificationPermission();if(!permission.ok){enabled=false;toast(permission.reason)}}const baselineEnabled=fd.has('visitBaselineEnabled'),baselineDate=String(fd.get('visitBaselineDate')||data.installedOn||today());
+ if(baselineEnabled&&(!parseDate(baselineDate)||baselineDate>today()))throw Error('تاريخ بدء حساب الافتقاد لازم يكون اليوم أو تاريخ سابق صحيح');
+ data.settings={...data.settings,servantDays:servant,ordinaryDays:ordinary,visitDays:visit,visitBaselineEnabled:baselineEnabled,visitBaselineDate:baselineEnabled?baselineDate:(data.settings.visitBaselineDate||baselineDate),notifyEnabled:enabled,notifyHour:time[0],notifyMinute:time[1],showNamesOnLock:fd.get('showNamesOnLock')==='true'};await save();render();toast('تم حفظ الإعدادات');break}
+case'password-form':{let pass=String(fd.get('newPass')||'');validatePassword(pass);if(pass!==fd.get('confirmPass'))throw Error('كلمتا المرور غير متطابقتين');await saveChain;let currentData=structuredClone(data);unlocked=await newVault(pass,currentData);vault=await readVault();await rememberThisDevice();closeModal();toast('تم تحديث التشفير. احتفظ بكلمة المرور الجديدة.');break}
+}}catch(ex){showError(ex)}}
+toastEl.addEventListener('click',ev=>{if(ev.target.id==='undo-toast')undoLast().catch(showError)});
+root.addEventListener('submit',handleSubmit);
+root.addEventListener('click',ev=>{let el=ev.target.closest('[data-action]');if(el){ev.preventDefault();perform(el.dataset.action,el)}else if(ev.target.id==='modal-layer')closeModal()});
+root.addEventListener('keydown',ev=>{let el=ev.target.closest('[role="button"][data-action]');if(el&&(ev.key==='Enter'||ev.key===' ')){ev.preventDefault();perform(el.dataset.action,el)}});
+root.addEventListener('input',ev=>{
+ const target=ev.target;
+ if(target.id==='schedule-target-query'){
+   targetQuery=target.value;clearTimeout(searchUpdateTimer);
+   searchUpdateTimer=setTimeout(()=>{const box=document.getElementById('schedule-target-list');if(box)box.innerHTML=appointmentTargetOptions();},100);
+ }
+ if(['schedule-date','schedule-start','schedule-end','exception-start','exception-end'].includes(target.id))showConflictPreview();
+ if(target.id==='search'||target.id==='family-search'||target.id==='family-visit-search'){
+   if(target.id==='search'){search=target.value;peopleLimit=LIST_BATCH;visitLimit=LIST_BATCH}
+   else if(target.id==='family-search'){familySearch=target.value;pickerLimit=PICKER_BATCH}
+   else{familyVisitSearch=target.value;familyLimit=FAMILY_BATCH}
+   clearTimeout(searchUpdateTimer);
+   searchUpdateTimer=setTimeout(()=>{
+     if(target.id==='search')updatePersonResults();
+     else if(target.id==='family-search')updateFamilyPickerResults();
+     else updateFamilyList();
+   },95);
+ }
+});
+
+root.addEventListener('change',async ev=>{let el=ev.target;if(el.id==='import-file'){
+ try{replaceImportNames=false;pendingImportFile=el.files[0];imported=await readImportFile(pendingImportFile);mapping=guessColumns(imported.headers);render();toast(`تمت قراءة ${imported.rows.length} اسم / صف`)}catch(ex){showError(ex)}
+}else if(el.id==='vcf-encoding'){
+ try{if(!pendingImportFile)throw Error('اختر ملف VCF مرة أخرى');const encoding=el.value;imported=await readImportFile(pendingImportFile,encoding);mapping=guessColumns(imported.headers);render();toast('تم تحديث معاينة أسماء VCF')}
+ catch(ex){showError(ex)}
+}else if(el.id==='import-replace-names'){replaceImportNames=el.checked}
+else if(el.id==='planner-day'||el.id==='coptic-day'){if(parseDate(el.value)){planDay=el.value;render()}}
+ else if(el.id==='planner-mode'){planMode=el.value==='week'?'week':'day';render()}
+ else if(el.id==='family-visit-choose'){familyVisitSelectedId=el.value;render();document.getElementById('family-visit-choose')?.focus({preventScroll:true})}
+else if(el.classList.contains('family-member-check')){let id=el.value;familySelection=el.checked?[...new Set([...familySelection,id])]:familySelection.filter(x=>x!==id);el.closest('.family-picker')?.classList.toggle('selected',el.checked);const label=document.getElementById('family-picked-count'),chips=document.getElementById('family-picked-chips'),next=document.querySelector('[data-action="family-next"]');if(label)label.textContent=`تم اختيار ${familySelection.length} شخص`;if(chips)chips.innerHTML=pickedChipsHtml();if(next)next.disabled=familySelection.length<2}
+else if(el.classList.contains('import-map')){mapping[el.dataset.map]=Number(el.value)}});
+let hiddenAt=null;document.addEventListener('visibilitychange',()=>{if(document.hidden)hiddenAt=Date.now();else if(data){if(data.settings.notifyEnabled&&nativeAvailable())rescheduleNotifications(data).catch(console.warn);hiddenAt=null}});
+window.addEventListener('pagehide',()=>{hiddenAt=Date.now()});
+async function start(){try{vault=await readVault();if(vault&&!validEnvelope(vault))throw Error('صيغة ملف البيانات غير صالحة');if(await autoOpen()){if(data.settings.notifyEnabled&&nativeAvailable())rescheduleNotifications(data).catch(console.warn);return}renderAuth()}catch(ex){root.innerHTML=`<div class="screen-login"><div class="login-box"><h1>تعذّر فتح التخزين</h1><p class="danger-note">${e(ex.message)}</p><p class="help">جرّب فتح التطبيق من HTTPS أو نسخة iPhone الأصلية، وما تحذفش النسخة القديمة قبل عمل نسخة احتياطية.</p></div></div>`}}
+start();
+if(nativeAvailable())import('@capacitor/local-notifications').then(({LocalNotifications})=>LocalNotifications.addListener('localNotificationActionPerformed',event=>{const id=event.notification?.extra?.personId;if(id){pendingNotificationPerson=id;if(data&&findP(id)){pickPerson(id);pendingNotificationPerson=null}}})).catch(console.warn);
+// Offline install is intentionally silent; verify using /status.html.
+if ('serviceWorker' in navigator && location.protocol === 'https:') {
+  navigator.serviceWorker.register('./sw.js', { updateViaCache: 'none' })
+    .then(reg => reg.update().catch(() => {}))
+    .catch(err => console.warn('Offline setup unavailable:', err));
+}
+
+</script>
+</body>
+</html>
